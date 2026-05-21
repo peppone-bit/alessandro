@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alessandro — Dravet Syndrome | Medical Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #F5F7FA;
+            --surface: #FFFFFF;
+            --primary: #1A2332;
+            --secondary: #4A5568;
+            --muted: #718096;
+            --border: #E2E8F0;
+            --emergency: #B91C1C;
+            --emergency-light: #FEF2F2;
+            --safe: #1E40AF;
+            --safe-light: #EFF6FF;
+            --warn: #92400E;
+            --warn-light: #FFFBEB;
+            --green: #065F46;
+            --green-light: #ECFDF5;
+            --serif: 'DM Serif Display', serif;
+            --sans: 'DM Sans', system-ui, sans-serif;
+            --mono: 'IBM Plex Mono', 'Courier New', monospace;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--primary);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        /* NAV */
+        nav {
+            position: sticky;
+            top: 0;
+            background: var(--primary);
+            z-index: 100;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            height: 52px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        nav::-webkit-scrollbar { display: none; }
+
+        nav a {
+            color: rgba(255,255,255,0.65);
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            padding: 0 1rem;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            transition: color 0.15s;
+            flex-shrink: 0;
+        }
+        nav a:hover { color: #fff; }
+        nav a.em { color: #FCA5A5; }
+        nav a.em:hover { color: #FEE2E2; }
+
+        /* HERO */
+        .hero {
+            background: var(--primary);
+            color: white;
+            padding: 3.5rem 1.5rem 3rem;
+            text-align: center;
+        }
+        .hero-label {
+            font-size: 0.72rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.45);
+            margin-bottom: 0.9rem;
+        }
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(2.4rem, 7vw, 4rem);
+            font-weight: 400;
+            line-height: 1.05;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.01em;
+        }
+        .hero-sub {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.6);
+            max-width: 500px;
+            margin: 0 auto 1.75rem;
+            line-height: 1.65;
+        }
+        .hero-badges {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .badge {
+            font-size: 0.72rem;
+            font-weight: 500;
+            padding: 0.28rem 0.8rem;
+            border-radius: 100px;
+            letter-spacing: 0.04em;
+        }
+        .badge-green { background: rgba(52,211,153,0.18); color: #6EE7B7; border: 1px solid rgba(52,211,153,0.25); }
+        .badge-blue  { background: rgba(96,165,250,0.15); color: #93C5FD; border: 1px solid rgba(96,165,250,0.2); }
+        .badge-amber { background: rgba(251,191,36,0.15); color: #FCD34D; border: 1px solid rgba(251,191,36,0.2); }
+
+        /* LAYOUT */
+        .wrap {
+            background: var(--surface);
+        }
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+        section {
+            padding: 2.75rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        section:last-child { border-bottom: none; }
+
+        .section-label {
+            font-size: 0.68rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 0.35rem;
+        }
+        .section-title {
+            font-family: var(--serif);
+            font-size: 1.65rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* EMERGENCY */
+        #emergency {
+            border-top: 4px solid var(--emergency);
+        }
+        .em-header {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            margin-bottom: 1.5rem;
+        }
+        .em-dot {
+            width: 9px; height: 9px;
+            background: var(--emergency);
+            border-radius: 50%;
+            flex-shrink: 0;
+            animation: pulse 1.6s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.45; transform: scale(0.8); }
+        }
+        .em-title {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--emergency);
+        }
+
+        /* PATIENT GRID */
+        .patient-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem;
+            margin-bottom: 1.1rem;
+        }
+        @media (max-width: 480px) { .patient-grid { grid-template-columns: 1fr; } }
+
+        .pcard {
+            background: var(--bg);
+            border-radius: 7px;
+            padding: 0.85rem 1rem;
+        }
+        .pcard-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 0.25rem;
+        }
+        .pcard-value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        .pcard-value.mono {
+            font-family: var(--mono);
+            font-size: 0.82rem;
+        }
+
+        /* MED BOXES */
+        .med-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.65rem;
+            margin-bottom: 0.65rem;
+        }
+        @media (max-width: 560px) { .med-grid { grid-template-columns: 1fr; } }
+
+        .mbox {
+            border-radius: 7px;
+            padding: 0.95rem 1.1rem;
+        }
+        .mbox-current { background: var(--safe-light);  border-left: 3px solid #3B82F6; }
+        .mbox-rescue  { background: var(--warn-light);  border-left: 3px solid #D97706; }
+        .mbox-fever   { background: var(--green-light); border-left: 3px solid #10B981; }
+
+        .mbox-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        .mbox-current .mbox-label { color: var(--safe); }
+        .mbox-rescue  .mbox-label { color: #B45309; }
+        .mbox-fever   .mbox-label { color: #065F46; }
+
+        .drug {
+            font-family: var(--mono);
+            font-size: 0.8rem;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+        .drug-name { font-weight: 500; }
+        .drug-dose { color: var(--secondary); font-size: 0.75rem; }
+
+        /* NEVER BOX */
+        .never-box {
+            background: var(--emergency-light);
+            border: 1px solid #FECACA;
+            border-radius: 7px;
+            padding: 1rem 1.1rem;
+            margin-top: 0.65rem;
+        }
+        .never-label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--emergency);
+            margin-bottom: 0.6rem;
+        }
+        .never-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 0.65rem;
+        }
+        .ntag {
+            font-family: var(--mono);
+            font-size: 0.73rem;
+            background: #FEE2E2;
+            color: #991B1B;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .never-note {
+            font-size: 0.78rem;
+            color: #991B1B;
+            line-height: 1.55;
+        }
+
+        /* QR / CONTACT BLOCK */
+        .contact-block {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.4rem;
+            background: var(--bg);
+            border-radius: 8px;
+            padding: 1.1rem 1.25rem;
+            margin-top: 1rem;
+        }
+        @media (max-width: 460px) {
+            .contact-block { flex-direction: column; align-items: center; text-align: center; }
+        }
+        #qrcode canvas, #qrcode img { border-radius: 5px; }
+        .contact-text h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+        .contact-text p {
+            font-size: 0.8rem;
+            color: var(--secondary);
+            line-height: 1.55;
+        }
+        .neurologist-block {
+            margin-top: 0.8rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.78rem;
+            color: var(--secondary);
+            line-height: 1.6;
+        }
+        .neurologist-block strong {
+            color: var(--primary);
+            font-size: 0.82rem;
+            display: block;
+            margin-bottom: 0.1rem;
+        }
+
+        /* TABLE */
+        .table-wrap {
+            overflow-x: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+        }
+        thead {
+            background: var(--primary);
+            color: white;
+        }
+        th {
+            padding: 0.65rem 0.9rem;
+            text-align: left;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        td {
+            padding: 0.7rem 0.9rem;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+            line-height: 1.45;
+        }
+        tr:last-child td { border-bottom: none; }
+        tr:nth-child(even) td { background: #FAFBFC; }
+        td.ep { font-family: var(--mono); font-weight: 700; color: var(--emergency); width: 2.2rem; }
+        td.mc { font-family: var(--mono); font-size: 0.75rem; }
+
+        .pill {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            padding: 0.15rem 0.5rem;
+            border-radius: 3px;
+            text-transform: uppercase;
+        }
+        .pill-icu { background: #FEE2E2; color: #991B1B; }
+        .pill-ed  { background: #FEF3C7; color: #92400E; }
+
+        /* STORY */
+        .status-bar {
+            background: var(--green-light);
+            border: 1px solid #A7F3D0;
+            border-radius: 7px;
+            padding: 0.85rem 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            margin-bottom: 1.5rem;
+        }
+        .sdot { width: 9px; height: 9px; background: #10B981; border-radius: 50%; flex-shrink: 0; }
+        .stext { font-size: 0.86rem; color: var(--green); font-weight: 500; }
+
+        .story p {
+            color: var(--secondary);
+            margin-bottom: 1.1rem;
+            font-size: 0.94rem;
+            line-height: 1.78;
+        }
+        .story p:last-child { margin-bottom: 0; }
+
+        /* TIMELINE */
+        .timeline {
+            border-left: 2px solid var(--border);
+            padding-left: 1.4rem;
+            margin: 1.75rem 0 0;
+        }
+        .tlitem {
+            position: relative;
+            display: flex;
+            gap: 1.1rem;
+            padding: 0.55rem 0;
+        }
+        .tlitem::before {
+            content: '';
+            position: absolute;
+            left: -1.52rem;
+            top: 1.05rem;
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--border);
+            border: 2px solid var(--surface);
+        }
+        .tlitem.key::before  { background: var(--primary); }
+        .tlitem.good::before { background: #10B981; }
+
+        .tldate {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: var(--muted);
+            white-space: nowrap;
+            min-width: 5rem;
+            padding-top: 0.15rem;
+            flex-shrink: 0;
+        }
+        .tltext {
+            font-size: 0.86rem;
+            color: var(--secondary);
+            line-height: 1.55;
+        }
+        .tltext strong { color: var(--primary); }
+
+        /* GENETICS */
+        .gene-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.2rem 1.35rem;
+            margin-bottom: 0.9rem;
+        }
+        .gene-card h4 {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 0.6rem;
+        }
+        .variant-str {
+            font-family: var(--mono);
+            font-size: 0.78rem;
+            color: var(--safe);
+            background: var(--safe-light);
+            padding: 0.4rem 0.75rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 0.75rem;
+            word-break: break-all;
+        }
+        .gene-card p {
+            font-size: 0.88rem;
+            color: var(--secondary);
+            line-height: 1.68;
+        }
+        .insight {
+            background: #F0FDF4;
+            border: 1px solid #BBF7D0;
+            border-radius: 8px;
+            padding: 1rem 1.2rem;
+            font-size: 0.87rem;
+            color: #065F46;
+            line-height: 1.65;
+        }
+
+        /* RESOURCES */
+        .resources { display: flex; flex-direction: column; gap: 0.7rem; }
+        .res {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem 1.2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .res-icon {
+            width: 34px; height: 34px;
+            background: var(--bg);
+            border-radius: 6px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .res h4 { font-size: 0.87rem; font-weight: 600; color: var(--primary); margin-bottom: 0.2rem; }
+        .res p  { font-size: 0.79rem; color: var(--secondary); line-height: 1.5; margin-bottom: 0.3rem; }
+        .res a  { color: var(--safe); text-decoration: none; font-size: 0.77rem; font-family: var(--mono); }
+        .res a:hover { text-decoration: underline; }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary);
+            color: rgba(255,255,255,0.45);
+            text-align: center;
+            padding: 2.25rem 1.5rem;
+            font-size: 0.77rem;
+            line-height: 1.75;
+        }
+        footer p + p { margin-top: 0.35rem; }
+
+        @media print {
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#emergency" class="em">⚠ Emergency</a>
+    <a href="#se-history">SE History</a>
+    <a href="#story">His Story</a>
+    <a href="#genetics">Genetics</a>
+    <a href="#resources">Resources</a>
+</nav>
+
+<div class="hero">
+    <p class="hero-label">Dravet Syndrome — Medical Profile</p>
+    <h1>Alessandro</h1>
+    <p class="hero-sub">Born 16 January 2018 · Dravet Syndrome confirmed · SCN1A 5′UTR deletion, March 2026</p>
+    <div class="hero-badges">
+        <span class="badge badge-green">Seizure-free since March 2022</span>
+        <span class="badge badge-blue">Hamburg, Germany</span>
+        <span class="badge badge-amber">Updated May 2026</span>
+    </div>
+</div>
+
+<div class="wrap">
+<div class="container">
+
+<!-- ══════════════════════════════════════════
+     EMERGENCY SECTION
+══════════════════════════════════════════ -->
+<section id="emergency">
+    <div class="em-header">
+        <div class="em-dot"></div>
+        <span class="em-title">Emergency Reference — For Medical Staff</span>
+    </div>
+
+    <div class="patient-grid">
+        <div class="pcard">
+            <div class="pcard-label">Patient</div>
+            <div class="pcard-value">Alessandro</div>
+        </div>
+        <div class="pcard">
+            <div class="pcard-label">Date of Birth</div>
+            <div class="pcard-value">16 January 2018</div>
+        </div>
+        <div class="pcard">
+            <div class="pcard-label">Diagnosis</div>
+            <div class="pcard-value">Dravet Syndrome</div>
+        </div>
+        <div class="pcard">
+            <div class="pcard-label">Confirmed Variant</div>
+            <div class="pcard-value mono">SCN1A 5′UTR deletion</div>
+        </div>
+    </div>
+
+    <div class="med-grid">
+        <div class="mbox mbox-current">
+            <div class="mbox-label">Current Medications</div>
+            <div class="drug">
+                <span class="drug-name">Fintepla (fenfluramine)</span>
+                <span class="drug-dose">2.4 ml BID</span>
+            </div>
+            <div class="drug">
+                <span class="drug-name">Orfiril Long (valproate)</span>
+                <span class="drug-dose">300 mg BID</span>
+            </div>
+        </div>
+        <div class="mbox mbox-rescue">
+            <div class="mbox-label">Rescue Medication</div>
+            <div class="drug">
+                <span class="drug-name">Buccolam (midazolam)</span>
+                <span class="drug-dose">5 mg oral — first line</span>
+            </div>
+            <div class="drug">
+                <span class="drug-name">Diazepam</span>
+                <span class="drug-dose">rectal / IV — escalation</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="mbox mbox-fever">
+        <div class="mbox-label">Fever Protocol</div>
+        <div class="drug">
+            <span class="drug-name">Aggressive antipyresis at first sign of fever</span>
+        </div>
+        <div class="drug">
+            <span class="drug-name">Diazepam prophylaxis</span>
+            <span class="drug-dose">0.75 mg/kg/day ÷ 3 doses during febrile illness</span>
+        </div>
+    </div>
+
+    <div class="never-box">
+        <div class="never-label">⛔ Never Administer — Contraindicated in SCN1A Dravet</div>
+        <div class="never-tags">
+            <span class="ntag">Carbamazepine</span>
+            <span class="ntag">Lamotrigine</span>
+            <span class="ntag">Phenytoin</span>
+            <span class="ntag">Oxcarbazepine</span>
+            <span class="ntag">All Na⁺-channel blockers</span>
+        </div>
+        <p class="never-note">Sodium-channel blocking AEDs paradoxically worsen seizure frequency in SCN1A loss-of-function. These are not alternatives — they are contraindicated.</p>
+    </div>
+
+    <div class="contact-block">
+        <div id="qrcode" style="flex-shrink:0;"></div>
+        <div class="contact-text">
+            <h4>Scan for Emergency Contacts</h4>
+            <p>QR code links to a private contact card with both parents' phone numbers. Scan if you need to reach the family urgently.</p>
+            <div class="neurologist-block">
+                <strong>Primary Neurologist</strong>
+                Dr. Jessika Johannsen<br>
+                Klinik für Kinder- und Jugendmedizin<br>
+                UKE — Universitätsklinikum Hamburg-Eppendorf
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SE HISTORY
+══════════════════════════════════════════ -->
+<section id="se-history">
+    <div class="section-label">For Medical Staff</div>
+    <div class="section-title">Status Epilepticus History</div>
+
+    <p style="font-size:0.88rem;color:var(--secondary);line-height:1.7;margin-bottom:1.25rem;">
+        7 documented SE episodes total — 6 clustered October 2020 through February 2021, one breakthrough in March 2022 that led to Fintepla introduction.
+        <strong style="color:var(--green);">Seizure-free from March 2022 on current regimen.</strong>
+        Multiple episodes required intubation and ICU admission. Buccolam at home frequently provides only transient control — recurrence after initial response is a consistent pattern. Early IV escalation is appropriate.
+    </p>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Date</th>
+                    <th>Context / Trigger</th>
+                    <th>Worst BGA</th>
+                    <th>What broke the episode</th>
+                    <th>Level</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="ep">1</td>
+                    <td>15 Oct 2020</td>
+                    <td>Focal onset → SE with central hypopnoea. SpO₂ 60% on ambulance arrival.</td>
+                    <td class="mc">pH 6.95<br>pCO₂ 134</td>
+                    <td>Buccolam (home) + IV Levetiracetam 50 mg/kg</td>
+                    <td><span class="pill pill-icu">ICU</span></td>
+                </tr>
+                <tr>
+                    <td class="ep">2</td>
+                    <td>31 Oct 2020</td>
+                    <td>Generalised tonic-clonic ~5 min. Rhinovirus/Enterovirus positive.</td>
+                    <td class="mc">—</td>
+                    <td>Broken in emergency department</td>
+                    <td><span class="pill pill-ed">ED</span></td>
+                </tr>
+                <tr>
+                    <td class="ep">3</td>
+                    <td>1 Dec 2020</td>
+                    <td>Fever 39°C, generalised TC, SpO₂ nadir 80%.</td>
+                    <td class="mc">—</td>
+                    <td>Lorazepam IV + Levetiracetam 20 mg/kg + Phenobarbital 5 mg/kg</td>
+                    <td><span class="pill pill-icu">ICU</span></td>
+                </tr>
+                <tr>
+                    <td class="ep">4</td>
+                    <td>21 Dec 2020</td>
+                    <td>Additional seizure during December 2020 cluster.</td>
+                    <td class="mc">—</td>
+                    <td>—</td>
+                    <td><span class="pill pill-ed">ED</span></td>
+                </tr>
+                <tr>
+                    <td class="ep">5</td>
+                    <td>5 Jan 2021</td>
+                    <td>Sudden hypotonia + left-gaze deviation, afebrile. Required bag-mask ventilation.</td>
+                    <td class="mc">pH 7.0<br>pCO₂ 130</td>
+                    <td>Lorazepam + Phenobarbital 10 mg/kg + Lacosamide + Levetiracetam + additional Phenobarbital 100 mg</td>
+                    <td><span class="pill pill-icu">ICU</span></td>
+                </tr>
+                <tr>
+                    <td class="ep">6</td>
+                    <td>20 Feb 2021</td>
+                    <td>Febrile SE. Bocavirus positive. Required intubation and mechanical ventilation.</td>
+                    <td class="mc">—</td>
+                    <td>Buccal Buccolam + intubation + propofol + SIMV ventilation</td>
+                    <td><span class="pill pill-icu">ICU</span></td>
+                </tr>
+                <tr>
+                    <td class="ep">7</td>
+                    <td>5 Mar 2022</td>
+                    <td>Afebrile, onset from sleep. Aspiration risk, prolonged apnoea. Triggered Fintepla introduction.</td>
+                    <td class="mc">—</td>
+                    <td>Buccolam (home) + IV Levetiracetam + IV Midazolam + bag-mask ventilation</td>
+                    <td><span class="pill pill-icu">ICU</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p style="font-size:0.77rem;color:var(--muted);margin-top:0.9rem;line-height:1.6;">
+        <strong>Semiology note:</strong> Typical onset is focal — gaze deviation (upward or lateral), abnormal breathing pattern, reduced responsiveness. Clonic movements are not always prominent and absence of them should not delay treatment. Prior to Fintepla, viral illness was the consistent trigger for febrile episodes.
+    </p>
+</section>
+
+<!-- ══════════════════════════════════════════
+     HIS STORY
+══════════════════════════════════════════ -->
+<section id="story">
+    <div class="section-label">For Families</div>
+    <div class="section-title">Alessandro's Journey</div>
+
+    <div class="status-bar">
+        <div class="sdot"></div>
+        <span class="stext">Seizure-free since March 2022 · Current regimen: Fintepla + Orfiril Long</span>
+    </div>
+
+    <div class="story">
+        <p>Alessandro is a boy born in January 2018 in southern Italy. His story started early — his first seizure came at just four and a half months old, twenty minutes after a routine meningitis vaccination. It presented as subtle eye and head movements, easy to miss. Epilepsy was diagnosed that same month, and the years that followed have been defined by two parallel searches: a search for answers, and a search for seizure control.</p>
+
+        <p>His family relocated to Hamburg, Germany when he was ten months old, where he came under the care of the neuropaediatric team at UKE Hamburg. What followed was a brutal stretch from late 2020 into early 2021: six status epilepticus episodes in four months, repeated PICU admissions, multiple intubations. Rhinovirus, Enterovirus, Bocavirus — viral illness was the consistent trigger. He pulled through each one.</p>
+
+        <p>A seventh breakthrough SE in March 2022 — afebrile, from sleep — finally led to the introduction of Fintepla (fenfluramine). It worked. Alessandro has been seizure-free since. His current regimen of Fintepla 2 ml twice daily and Orfiril Long 300 mg twice daily has held steady for over three years now.</p>
+
+        <p>Alongside seizure management, Alessandro lives with cognitive impairment (WISC-V Global IQ 58, assessed April 2026), expressive language delay, and dyspraxia. Language is a genuine relative strength — he is bilingual in Italian and German, and his verbal comprehension score sits meaningfully higher than his other indices. He attends a special needs school in Hamburg with full-time individual support. He loves music, responds warmly to structure and familiar routines, and forms strong bonds with the adults around him.</p>
+    </div>
+
+    <div class="timeline">
+        <div class="tlitem">
+            <span class="tldate">Jan 2018</span>
+            <span class="tltext">Born in Foggia, Italy — healthy term delivery</span>
+        </div>
+        <div class="tlitem key">
+            <span class="tldate">May 2018</span>
+            <span class="tltext"><strong>First seizure</strong> — 20 minutes post meningitis vaccination; epilepsy diagnosed same month</span>
+        </div>
+        <div class="tlitem">
+            <span class="tldate">Oct 2018</span>
+            <span class="tltext">Stiripentol + Clobazam started (Prof. Guerrini, Florence). Fintepla flagged as next-line option even then.</span>
+        </div>
+        <div class="tlitem">
+            <span class="tldate">Nov 2018</span>
+            <span class="tltext">Family relocates to Hamburg. Care transfers to UKE Hamburg neuropaediatrics.</span>
+        </div>
+        <div class="tlitem">
+            <span class="tldate">Dec 2019</span>
+            <span class="tltext">Exome sequencing at Meyer Hospital Florence — <strong>no pathogenic variant found</strong>. SCN1A 5′UTR is not covered by exome. Seven more years pass before the answer arrives.</span>
+        </div>
+        <div class="tlitem key">
+            <span class="tldate">Oct 2020 –<br>Feb 2021</span>
+            <span class="tltext"><strong>Six status epilepticus episodes in four months.</strong> Multiple ICU admissions, repeated intubations. The worst period of Alessandro's illness.</span>
+        </div>
+        <div class="tlitem good">
+            <span class="tldate">Mar 2022</span>
+            <span class="tltext"><strong>Fintepla introduced</strong> after seventh SE. <strong>Seizure-free from that month.</strong></span>
+        </div>
+        <div class="tlitem">
+            <span class="tldate">Aug 2024</span>
+            <span class="tltext">School starts — Hamburg, with full-time Schulbegleitung (1:1 support) throughout the day</span>
+        </div>
+        <div class="tlitem good">
+            <span class="tldate">Mar 2026</span>
+            <span class="tltext"><strong>Genetic confirmation.</strong> Trio Whole Genome Analysis at UKE identifies the SCN1A 5′UTR deletion. Exome had missed it for seven years.</span>
+        </div>
+        <div class="tlitem">
+            <span class="tldate">Apr 2026</span>
+            <span class="tltext">WISC-V cognitive assessment. Verbal comprehension (73) confirmed as relative strength. Bilingualism noted as a genuine asset.</span>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     GENETICS
+══════════════════════════════════════════ -->
+<section id="genetics">
+    <div class="section-label">For Researchers & Families</div>
+    <div class="section-title">Genetic Profile</div>
+
+    <div class="gene-card">
+        <h4>Confirmed Variant</h4>
+        <div class="variant-str">SCN1A c.-43638_-141-19167delinsT</div>
+        <p>A deletion in the <strong>5′UTR / promoter region</strong> of SCN1A — heterozygous in Alessandro. ACMG classification: <strong>likely pathogenic</strong> (PS3_mod, PM2_sup, PM5, PP4). Variant was not previously in ClinVar or HGMD. Overlapping deletions in the same SCN1A promoter region have been published as causal for Dravet syndrome (PMID 20506560).</p>
+    </div>
+
+    <div class="gene-card">
+        <h4>Why Exome Sequencing Missed It</h4>
+        <p>Alessandro had a comprehensive NGS epilepsy panel and Trio Exome at Meyer Hospital Florence in 2019, returning no pathogenic variants. This is because whole exome sequencing does not cover non-coding regions, including the 5′UTR promoter. The diagnosis required <strong>Trio Whole Genome Sequencing</strong> to capture the deletion — performed at UKE Hamburg in February 2026, with results in March 2026, seven years after the first seizure.</p>
+        <p style="margin-top:0.65rem;"><strong>For families with a Dravet phenotype and a negative exome: push for whole genome sequencing.</strong> This is not a failure of prior testing — it reflects a genuine technological limitation that is now overcome.</p>
+    </div>
+
+    <div class="gene-card">
+        <h4>Inheritance & Mosaicism</h4>
+        <p>Alessandro's father carries the same SCN1A 5′UTR deletion — but only in approximately <strong>20% of his cells</strong> (somatic mosaicism, confirmed by Trio analysis). His father had a milder childhood epilepsy, treatable with valproate, and has been seizure-free since around age 11–14. This case illustrates Dravet's known intra-familial variability with precision: a ~50% allele load in Alessandro produces full Dravet syndrome; ~20% paternal mosaicism produces a much milder, GEFS+-like phenotype. Neither classical genetic testing nor clinical history would have predicted this inheritance pattern without Trio WGS.</p>
+    </div>
+
+    <div class="insight">
+        💡 <strong>For families in a similar situation:</strong> If your child has a Dravet phenotype, you have had a negative exome, and either parent has any personal or family history of febrile seizures or epilepsy — paternal or maternal mosaicism is a real diagnostic possibility. Trio Whole Genome Sequencing is the investigation to request. This family's case is a concrete example of how it changes the answer.
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     RESOURCES
+══════════════════════════════════════════ -->
+<section id="resources">
+    <div class="section-label">Community</div>
+    <div class="section-title">Resources</div>
+
+    <div class="resources">
+        <div class="res">
+            <div class="res-icon">🧬</div>
+            <div>
+                <h4>RESIDRAS — International Dravet Syndrome Registry</h4>
+                <p>Multi-centre European patient registry. Participating centres include UMC Utrecht, Antwerp University Hospital, Hôpital Necker (Paris), Filadelfia (Denmark), and Meyer Children's Hospital Florence.</p>
+                <a href="https://www.dravetregistry.eu" target="_blank" rel="noopener">dravetregistry.eu ↗</a>
+            </div>
+        </div>
+        <div class="res">
+            <div class="res-icon">🤝</div>
+            <div>
+                <h4>Dravet-Syndrom e.V. — German Patient Association</h4>
+                <p>National association based in Witten, Germany. Family counselling, events, and peer connection for German-speaking Dravet families.</p>
+                <a href="https://www.dravet.de" target="_blank" rel="noopener">dravet.de ↗</a>
+            </div>
+        </div>
+        <div class="res">
+            <div class="res-icon">🌍</div>
+            <div>
+                <h4>Dravet Syndrome Foundation</h4>
+                <p>International foundation with clinical guidance, trial information, and English-language family support resources.</p>
+                <a href="https://www.dravetfoundation.org" target="_blank" rel="noopener">dravetfoundation.org ↗</a>
+            </div>
+        </div>
+        <div class="res">
+            <div class="res-icon">📄</div>
+            <div>
+                <h4>Key Literature — SCN1A 5′UTR Variants</h4>
+                <p>Published evidence for SCN1A promoter deletions as causal for Dravet syndrome, supporting Alessandro's variant classification.</p>
+                <a href="https://pubmed.ncbi.nlm.nih.gov/20506560" target="_blank" rel="noopener">PubMed 20506560 ↗</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+</div><!-- /container -->
+</div><!-- /wrap -->
+
+<footer>
+    <p>This page documents one child's experience with Dravet Syndrome — SCN1A 5′UTR variant, confirmed Hamburg 2026.</p>
+    <p>Published to support other families, researchers, and emergency clinicians. Last updated May 2026.</p>
+    <p style="margin-top:0.6rem;font-size:0.7rem;opacity:0.7;">This is not medical advice. All clinical decisions should involve qualified medical professionals familiar with the patient.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+    integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSYX5KnBDfp7BNI9bBkFoKDXfxTGigb1tKdA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    // ⚠️ Replace this URL with your actual vCard or contact page link before publishing
+    const CONTACT_URL = "https://example.com/emergency-contact";
+
+    new QRCode(document.getElementById("qrcode"), {
+        text: CONTACT_URL,
+        width: 90,
+        height: 90,
+        colorDark: "#1A2332",
+        colorLight: "#F5F7FA",
+        correctLevel: QRCode.CorrectLevel.M
+    });
+</script>
+</body>
+</html>
