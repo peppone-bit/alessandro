@@ -877,11 +877,19 @@
     integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSYX5KnBDfp7BNI9bBkFoKDXfxTGigb1tKdA=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-    // ⚠️ Replace this URL with your actual vCard or contact page link before publishing
-    const CONTACT_URL = "https://example.com/emergency-contact";
+    // Emergency contact vCard — scanned directly by any phone camera, no internet needed
+    const VCARD = [
+        "BEGIN:VCARD",
+        "VERSION:3.0",
+        "FN:Alessandro — Emergency Contacts",
+        "TEL;TYPE=CELL,pref:+4915251087439",  // Giuseppe (father)
+        "TEL;TYPE=CELL:+4915201338917",        // Francesca (mother)
+        "NOTE:Parents of Alessandro (Dravet Syndrome). Father: Giuseppe. Mother: Francesca.",
+        "END:VCARD"
+    ].join("\n");
 
     new QRCode(document.getElementById("qrcode"), {
-        text: CONTACT_URL,
+        text: VCARD,
         width: 90,
         height: 90,
         colorDark: "#1A2332",
