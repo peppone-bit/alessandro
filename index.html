@@ -621,7 +621,12 @@
     </div>
 
     <div class="contact-block">
-        <div id="qrcode" style="flex-shrink:0;"></div>
+        <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&ecc=M&data=BEGIN%3AVCARD%0AVERSION%3A3.0%0AFN%3AAlessandro%20Emergency%0ATEL%3BTYPE%3DCELL%2Cpref%3A%2B4915251087439%0ATEL%3BTYPE%3DCELL%3A%2B4915201338917%0ANOTE%3AFather%3A%20Giuseppe%20%2B4915251087439%2C%20Mother%3A%20Francesca%20%2B4915201338917%0AEND%3AVCARD"
+            alt="Emergency contact QR code"
+            width="100" height="100"
+            style="flex-shrink:0; border-radius:6px;"
+        />
         <div class="contact-text">
             <h4>Scan for Emergency Contacts</h4>
             <p>QR code links to a private contact card with both parents' phone numbers. Scan if you need to reach the family urgently.</p>
@@ -873,29 +878,6 @@
     <p style="margin-top:0.6rem;font-size:0.7rem;opacity:0.7;">This is not medical advice. All clinical decisions should involve qualified medical professionals familiar with the patient.</p>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
-    integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSYX5KnBDfp7BNI9bBkFoKDXfxTGigb1tKdA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script>
-    // Emergency contact vCard — scanned directly by any phone camera, no internet needed
-    const VCARD = [
-        "BEGIN:VCARD",
-        "VERSION:3.0",
-        "FN:Alessandro — Emergency Contacts",
-        "TEL;TYPE=CELL,pref:+4915251087439",  // Giuseppe (father)
-        "TEL;TYPE=CELL:+4915201338917",        // Francesca (mother)
-        "NOTE:Parents of Alessandro (Dravet Syndrome). Father: Giuseppe. Mother: Francesca.",
-        "END:VCARD"
-    ].join("\n");
-
-    new QRCode(document.getElementById("qrcode"), {
-        text: VCARD,
-        width: 90,
-        height: 90,
-        colorDark: "#1A2332",
-        colorLight: "#F5F7FA",
-        correctLevel: QRCode.CorrectLevel.M
-    });
-</script>
+<!-- QR code is rendered as a plain img via api.qrserver.com — no JS library needed -->
 </body>
 </html>
