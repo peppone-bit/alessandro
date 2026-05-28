@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alessandro &#8212; SOS Emergency Medical Card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #F5F7FA;
+            --surface: #FFFFFF;
+            --primary: #1A2332;
+            --secondary: #4A5568;
+            --muted: #718096;
+            --border: #E2E8F0;
+            --emergency: #B91C1C;
+            --emergency-dark: #991B1B;
+            --emergency-light: #FEF2F2;
+            --safe: #1E40AF;
+            --safe-light: #EFF6FF;
+            --warn: #92400E;
+            --warn-light: #FFFBEB;
+            --green: #065F46;
+            --green-light: #ECFDF5;
+            --serif: 'DM Serif Display', serif;
+            --sans: 'DM Sans', system-ui, sans-serif;
+            --mono: 'IBM Plex Mono', 'Courier New', monospace;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--primary);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .sos-stripe {
+            background: var(--emergency);
+            color: white;
+            padding: 0.55rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            justify-content: center;
+        }
+        .sos-cross { width: 22px; height: 22px; position: relative; flex-shrink: 0; }
+        .sos-cross::before, .sos-cross::after { content: ''; position: absolute; background: white; border-radius: 2px; }
+        .sos-cross::before { width: 100%; height: 36%; top: 32%; left: 0; }
+        .sos-cross::after  { width: 36%; height: 100%; top: 0; left: 32%; }
+        .sos-stripe-text { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; }
+
+        nav {
+            background: var(--emergency);
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            height: 48px;
+            gap: 0.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0,0,0,0.15);
+        }
+        .nav-back { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.04em; display: flex; align-items: center; gap: 0.3rem; transition: color 0.15s; }
+        .nav-back:hover { color: white; }
+        .nav-sep { color: rgba(255,255,255,0.25); margin: 0 0.25rem; font-size: 0.9rem; }
+        .nav-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: white; }
+        .nav-spacer { flex: 1; }
+        .btn-print { background: white; border: 1px solid white; color: var(--primary); font-family: var(--sans); font-size: 0.74rem; font-weight: 600; letter-spacing: 0.04em; padding: 0.28rem 0.8rem; border-radius: 5px; cursor: pointer; transition: background 0.15s; }
+        .btn-print:hover { background: #F0F0F0; }
+
+        .hero { background: var(--emergency); color: white; padding: 2.5rem 1.5rem 2.25rem; text-align: center; border-bottom: 4px solid rgba(0,0,0,0.2); }
+        .hero-cross { width: 44px; height: 44px; position: relative; margin: 0 auto 1.1rem; }
+        .hero-cross::before, .hero-cross::after { content: ''; position: absolute; background: white; border-radius: 3px; }
+        .hero-cross::before { width: 100%; height: 36%; top: 32%; left: 0; }
+        .hero-cross::after  { width: 36%; height: 100%; top: 0; left: 32%; }
+        .hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 5.5vw, 2.8rem); font-weight: 400; line-height: 1.05; margin-bottom: 0.5rem; }
+        .hero-sub { font-size: 0.88rem; color: rgba(255,255,255,0.75); max-width: 460px; margin: 0 auto 1.25rem; line-height: 1.6; }
+        .hero-badges { display: flex; gap: 0.45rem; justify-content: center; flex-wrap: wrap; }
+        .badge { font-size: 0.7rem; font-weight: 500; padding: 0.25rem 0.75rem; border-radius: 100px; letter-spacing: 0.04em; }
+        .badge-green { background: white; color: var(--primary); border: 1px solid white; }
+        .badge-blue  { background: white; color: var(--primary); border: 1px solid white; }
+        .badge-amber { background: white; color: var(--primary); border: 1px solid white; }
+
+        .wrap { background: var(--surface); }
+        .container { max-width: 860px; margin: 0 auto; padding: 0 1.25rem; }
+        section { padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
+        section:last-child { border-bottom: none; }
+
+        #emergency { border-top: 4px solid var(--emergency); }
+        .em-header { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1.4rem; }
+        .em-cross { width: 18px; height: 18px; position: relative; flex-shrink: 0; }
+        .em-cross::before, .em-cross::after { content: ''; position: absolute; background: var(--emergency); border-radius: 2px; }
+        .em-cross::before { width: 100%; height: 36%; top: 32%; left: 0; }
+        .em-cross::after  { width: 36%; height: 100%; top: 0; left: 32%; }
+        .em-title { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--emergency); }
+
+        .patient-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-bottom: 1.1rem; }
+        @media (max-width: 480px) { .patient-grid { grid-template-columns: 1fr; } }
+        .pcard { background: var(--bg); border-radius: 7px; padding: 0.85rem 1rem; }
+        .pcard-label { font-size: 0.63rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.25rem; }
+        .pcard-value { font-size: 0.98rem; font-weight: 600; color: var(--primary); }
+        .pcard-value.mono { font-family: var(--mono); font-size: 0.8rem; }
+
+        .med-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; margin-bottom: 0.65rem; }
+        @media (max-width: 560px) { .med-grid { grid-template-columns: 1fr; } }
+        .mbox { border-radius: 7px; padding: 0.95rem 1.1rem; }
+        .mbox-current { background: var(--safe-light);  border-left: 3px solid #3B82F6; }
+        .mbox-rescue  { background: var(--warn-light);  border-left: 3px solid #D97706; }
+        .mbox-fever   { background: var(--green-light); border-left: 3px solid #10B981; }
+        .mbox-label { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .mbox-current .mbox-label { color: var(--safe); }
+        .mbox-rescue  .mbox-label { color: #B45309; }
+        .mbox-fever   .mbox-label { color: #065F46; }
+        .drug { font-family: var(--mono); font-size: 0.8rem; color: var(--primary); margin-bottom: 0.3rem; display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; }
+        .drug:last-child { margin-bottom: 0; }
+        .drug-name { font-weight: 500; }
+        .drug-dose { color: var(--secondary); font-size: 0.75rem; white-space: nowrap; }
+
+        .never-box { background: var(--emergency-light); border: 2px solid #FECACA; border-radius: 7px; padding: 1.1rem 1.25rem; margin-top: 0.65rem; }
+        .never-label { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--emergency); margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.55rem; }
+        .never-cross { width: 16px; height: 16px; position: relative; flex-shrink: 0; }
+        .never-cross::before, .never-cross::after { content: ''; position: absolute; background: var(--emergency); border-radius: 2px; }
+        .never-cross::before { width: 100%; height: 36%; top: 32%; left: 0; }
+        .never-cross::after  { width: 36%; height: 100%; top: 0; left: 32%; }
+        .never-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.65rem; }
+        .ntag { font-family: var(--mono); font-size: 0.75rem; background: #FEE2E2; color: var(--emergency-dark); padding: 0.25rem 0.7rem; border-radius: 4px; font-weight: 600; border: 1px solid #FECACA; }
+        .never-note { font-size: 0.79rem; color: var(--emergency-dark); line-height: 1.55; }
+
+        .contact-block { display: flex; align-items: flex-start; gap: 1.4rem; background: var(--bg); border-radius: 8px; padding: 1.1rem 1.25rem; margin-top: 1rem; }
+        @media (max-width: 460px) { .contact-block { flex-direction: column; align-items: center; text-align: center; } }
+        .contact-text h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.3rem; }
+        .contact-text p { font-size: 0.8rem; color: var(--secondary); line-height: 1.55; }
+        .neurologist-block { margin-top: 0.8rem; padding-top: 0.8rem; border-top: 1px solid var(--border); font-size: 0.78rem; color: var(--secondary); line-height: 1.6; }
+        .neurologist-block strong { color: var(--primary); font-size: 0.82rem; display: block; margin-bottom: 0.1rem; }
+
+        .section-label { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.35rem; }
+        .section-title { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; margin-bottom: 1.4rem; color: var(--primary); }
+
+        .table-wrap { overflow-x: auto; border-radius: 8px; border: 1px solid var(--border); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+        thead { background: var(--primary); color: white; }
+        th { padding: 0.65rem 0.9rem; text-align: left; font-size: 0.63rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; white-space: nowrap; }
+        td { padding: 0.7rem 0.9rem; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.45; }
+        tr:last-child td { border-bottom: none; }
+        tr:nth-child(even) td { background: #FAFBFC; }
+        td.ep { font-family: var(--mono); font-weight: 700; color: var(--emergency); width: 2.4rem; }
+        td.mc { font-family: var(--mono); font-size: 0.75rem; }
+        .se0 td { background: #FFFBF0 !important; }
+        .pill { display: inline-block; font-size: 0.63rem; font-weight: 700; letter-spacing: 0.05em; padding: 0.15rem 0.5rem; border-radius: 3px; text-transform: uppercase; }
+        .pill-icu { background: #FEE2E2; color: #991B1B; }
+        .pill-ed  { background: #FEF3C7; color: #92400E; }
+
+        footer { background: var(--emergency); color: rgba(255,255,255,0.9); text-align: center; padding: 2rem 1.5rem; font-size: 0.77rem; line-height: 1.75; }
+        footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+        footer a:hover { color: #fff; }
+        footer p + p { margin-top: 0.35rem; }
+
+        @media (max-width: 600px) {
+            .sos-stripe { padding: 0.5rem 1rem; }
+            .sos-stripe-text { font-size: 0.68rem; letter-spacing: 0.12em; }
+            nav { height: 44px; padding: 0 1rem; }
+            .hero { padding: 1.75rem 1rem 1.5rem; }
+            .hero h1 { font-size: 2.4rem; margin-bottom: 0.5rem; }
+            .hero-sub { font-size: 0.92rem; color: rgba(255,255,255,0.85); margin-bottom: 1rem; }
+            .badge { font-size: 0.75rem; padding: 0.3rem 0.8rem; }
+            .container { padding: 0 1rem; }
+            section { padding: 1.75rem 0; }
+            .patient-grid { grid-template-columns: 1fr; gap: 0.5rem; }
+            .pcard { padding: 0.9rem 1rem; }
+            .pcard-label { font-size: 0.7rem; }
+            .pcard-value { font-size: 1.05rem; }
+            .pcard-value.mono { font-size: 0.88rem; }
+            .med-grid { grid-template-columns: 1fr; }
+            .mbox { padding: 1rem 1.1rem; }
+            .mbox-label { font-size: 0.7rem; margin-bottom: 0.6rem; }
+            .drug { font-size: 0.9rem; flex-wrap: wrap; }
+            .drug-name { font-weight: 600; }
+            .drug-dose { font-size: 0.82rem; }
+            .never-box { padding: 1.1rem; }
+            .never-label { font-size: 0.76rem; }
+            .ntag { font-size: 0.85rem; padding: 0.3rem 0.75rem; }
+            .never-note { font-size: 0.88rem; line-height: 1.6; }
+            .contact-block { padding: 1rem; gap: 1rem; }
+            .contact-text h4 { font-size: 1rem; }
+            .contact-text p { font-size: 0.88rem; }
+            .neurologist-block { font-size: 0.84rem; }
+            .section-title { font-size: 1.4rem; }
+        }
+
+        @media print {
+            .sos-stripe { position: fixed; top: 0; left: 0; right: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            nav { display: none; }
+            .hero { padding: 1rem 1.5rem; }
+            section { padding: 1.25rem 0; break-inside: avoid; }
+            .never-box { break-inside: avoid; }
+            .table-wrap { break-inside: avoid; }
+            footer { display: none; }
+            body { font-size: 13px; }
+            * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="sos-stripe">
+    <div class="sos-cross"></div>
+    <span class="sos-stripe-text">SOS &#8212; Emergency Medical Card</span>
+    <div class="sos-cross"></div>
+</div>
+
+<nav>
+    <a href="../" class="nav-back">&#8592; Full Profile</a>
+    <span class="nav-sep">|</span>
+    <span class="nav-label">&#9888; Emergency Card</span>
+    <div class="nav-spacer"></div>
+    <button class="btn-print" onclick="window.print()">Print</button>
+</nav>
+
+<div class="hero">
+    <div class="hero-cross"></div>
+    <h1>Alessandro</h1>
+    <p class="hero-sub">Born 16 January 2018 &middot; Dravet Syndrome &middot; SCN1A 5&#8242;UTR deletion</p>
+    <div class="hero-badges">
+        <span class="badge badge-green">Seizure-free since March 2022</span>
+        <span class="badge badge-blue">Hamburg, Germany</span>
+        <span class="badge badge-amber">Updated May 2026</span>
+    </div>
+</div>
+
+<div class="wrap">
+<div class="container">
+
+<section id="emergency">
+    <div class="em-header">
+        <div class="em-cross"></div>
+        <span class="em-title">Emergency Reference &#8212; For Medical Staff</span>
+    </div>
+
+    <div class="patient-grid">
+        <div class="pcard"><div class="pcard-label">Patient</div><div class="pcard-value">Alessandro</div></div>
+        <div class="pcard"><div class="pcard-label">Date of Birth</div><div class="pcard-value">16 January 2018</div></div>
+        <div class="pcard"><div class="pcard-label">Diagnosis</div><div class="pcard-value">Dravet Syndrome</div></div>
+        <div class="pcard"><div class="pcard-label">Confirmed Variant</div><div class="pcard-value mono">SCN1A 5&#8242;UTR deletion</div></div>
+        <div class="pcard"><div class="pcard-label">Weight</div><div class="pcard-value">24 kg <span style="font-size:0.75rem;font-weight:400;color:var(--muted)">(Apr 2026)</span></div></div>
+        <div class="pcard"><div class="pcard-label">Height</div><div class="pcard-value">125.5 cm <span style="font-size:0.75rem;font-weight:400;color:var(--muted)">(Apr 2026)</span></div></div>
+    </div>
+
+    <div class="med-grid">
+        <div class="mbox mbox-current">
+            <div class="mbox-label">Current Medications</div>
+            <div class="drug"><span class="drug-name">Fintepla (fenfluramine)</span><span class="drug-dose">2.4 ml BID</span></div>
+            <div class="drug"><span class="drug-name">Orfiril Long (valproate)</span><span class="drug-dose">300 mg BID</span></div>
+        </div>
+        <div class="mbox mbox-rescue">
+            <div class="mbox-label">Rescue Medication</div>
+            <div class="drug"><span class="drug-name">Buccolam (midazolam)</span><span class="drug-dose">7.5 mg buccal &#8212; first line</span></div>
+        </div>
+    </div>
+
+    <div class="mbox mbox-fever">
+        <div class="mbox-label">Fever Protocol</div>
+        <div class="drug"><span class="drug-name">Aggressive antipyresis at first sign of fever</span></div>
+    </div>
+
+    <div class="never-box">
+        <div class="never-label">
+            <div class="never-cross"></div>
+            Never Administer &#8212; Contraindicated in SCN1A Dravet
+        </div>
+        <div class="never-tags">
+            <span class="ntag">Carbamazepine</span>
+            <span class="ntag">Lamotrigine</span>
+            <span class="ntag">Phenytoin</span>
+            <span class="ntag">Oxcarbazepine</span>
+            <span class="ntag">All Na&#8314;-channel blockers</span>
+        </div>
+        <p class="never-note">Sodium-channel blocking AEDs paradoxically worsen seizure frequency in SCN1A loss-of-function. These are not alternatives &#8212; they are contraindicated.</p>
+    </div>
+
+    <div class="contact-block">
+        <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&ecc=M&data=BEGIN%3AVCARD%0AVERSION%3A3.0%0AFN%3AAlessandro%20Emergency%0ATEL%3BTYPE%3DCELL%2Cpref%3A%2B4915251087439%0ATEL%3BTYPE%3DCELL%3A%2B4915201338917%0ANOTE%3AFather%3A%20Giuseppe%20%2B4915251087439%2C%20Mother%3A%20Francesca%20%2B4915201338917%0AEND%3AVCARD"
+            alt="Emergency contact QR code"
+            width="100" height="100"
+            style="flex-shrink:0; border-radius:6px;"
+        />
+        <div class="contact-text">
+            <h4>Scan for Emergency Contacts</h4>
+            <p>QR code links to a private contact card with both parents&#8217; phone numbers. Scan if you need to reach the family urgently.</p>
+            <div class="neurologist-block">
+                <strong>Primary Neurologist</strong>
+                Dr. Jessika Johannsen<br>
+                Klinik f&#252;r Kinder- und Jugendmedizin<br>
+                UKE &#8212; Universit&#228;tsklinikum Hamburg-Eppendorf
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="se-history">
+    <div class="section-label">For Medical Staff</div>
+    <div class="section-title">Status Epilepticus History</div>
+
+    <p style="font-size:0.88rem;color:var(--secondary);line-height:1.7;margin-bottom:1.25rem;">
+        8 documented SE episodes &#8212; the first in Foggia, Italy in July 2018 (age 6 months), 6 clustered October 2020 through February 2021, and one breakthrough in March 2022 that led to Fintepla introduction.
+        <strong style="color:var(--green);">Seizure-free from March 2022 on current regimen.</strong>
+        Multiple episodes required intubation and ICU admission. Buccolam at home frequently provides only transient control &#8212; recurrence after initial response is a consistent pattern. Early IV escalation is appropriate.
+    </p>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Date</th>
+                    <th>Context / Trigger</th>
+                    <th>Worst BGA</th>
+                    <th>What broke the episode</th>
+                    <th>Level</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="se0">
+                    <td class="ep">1</td>
+                    <td>10 Jul 2018</td>
+                    <td>Febrile; biphasic. Seized at home (~20 min) during car journey &#8212; stopped on arrival at hospital. Restarted ~15 min later in Pediatrics ward, refractory to emergency medication &#8594; ICU transfer. Age 6 months, 9.4 kg.</td>
+                    <td class="mc">&#8212;</td>
+                    <td>Emergency meds (failed) &#8594; ICU sedation. Not intubated; spontaneous breathing with O&#8322;.</td>
+                    <td><span class="pill pill-icu">ICU</span></td>
+                </tr>
+                <tr>
+                    <td class="ep">2</td>
+                    <td>15 Oct 2020</td>
+                    <td>Focal onset &#8594; SE with central hypopno&#233;a. SpO&#8322; 60% on ambulance arrival.</td>
+                    <td class="mc">pH 6.95<br>pCO&#8322; 134</td>
+                    <td>Buccolam (home) + IV Levetiracetam 50 mg/kg</td>
+                    <td><span class="pill pill-icu">ICU</span></td>
+                </tr>
+                <tr>
+                    <td class="ep">3</td>
+                    <td>31 Oct 2020</td>
+                    <td>Generalised tonic-clonic ~5 min. Rhinovirus/Enterovirus positive.</td>
+                    <td class="mc">&#8212;</td>
+                    <td>Broken in emergency department</td>
+                    <td><span class="pill pill-ed">ED</span></td>
+                </tr>
+                <tr>
+                    <td class="ep">4</td>
+                    <td>1 Dec 2020</td>
+                    <td>Fever 39&#176;C, generalised TC, SpO&#8322; nadir 80%.</td>
+                    <td class="mc">&#8212;</td>
+                    <td>Lorazepam IV + Levetiracetam 20 mg/kg + Phenobarbital 5 mg/kg</td>
+                    <td><span class="pill pill-icu">ICU</span></td>
+                </tr>
+                <tr>
+                    <td class="ep">5</td>
+                    <td>21 Dec 2020</td>
+                    <td>Additional seizure during December 2020 cluster.</td>
+                    <td class="mc">&#8212;</td>
+                    <td>&#8212;</td>
+                    <td><span class="pill pill-ed">ED</span></td>
+                </tr>
+                <tr>
+                    <td class="ep">6</td>
+                    <td>5 Jan 2021</td>
+                    <td>Sudden hypotonia + left-gaze deviation, afebrile. Required bag-mask ventilation.</td>
+                    <td class="mc">pH 7.0<br>pCO&#8322; 130</td>
+                    <td>Lorazepam + Phenobarbital 10 mg/kg + Lacosamide + Levetiracetam + additional Phenobarbital 100 mg</td>
+                    <td><span class="pill pill-icu">ICU</span></td>
+                </tr>
+                <tr>
+                    <td class="ep">7</td>
+                    <td>20 Feb 2021</td>
+                    <td>Febrile SE. Bocavirus positive. Required intubation and mechanical ventilation.</td>
+                    <td class="mc">&#8212;</td>
+                    <td>Buccal Buccolam + intubation + propofol + SIMV ventilation</td>
+                    <td><span class="pill pill-icu">ICU</span></td>
+                </tr>
+                <tr>
+                    <td class="ep">8</td>
+                    <td>5 Mar 2022</td>
+                    <td>Afebrile, onset from sleep. Aspiration risk, prolonged apno&#233;a. Triggered Fintepla introduction.</td>
+                    <td class="mc">&#8212;</td>
+                    <td>Buccolam (home) + IV Levetiracetam + IV Midazolam + bag-mask ventilation</td>
+                    <td><span class="pill pill-icu">ICU</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p style="font-size:0.77rem;color:var(--muted);margin-top:0.75rem;line-height:1.6;">
+        <strong>Legend:</strong>
+        <span style="display:inline-block;font-size:0.65rem;font-weight:700;padding:0.1rem 0.45rem;border-radius:3px;background:#FEE2E2;color:#991B1B;margin:0 0.2rem;text-transform:uppercase;letter-spacing:0.05em;">ICU</span> Intensive Care Unit &#8212; required PICU-level intervention (sedation, bag-mask ventilation, or intubation).
+        <span style="display:inline-block;font-size:0.65rem;font-weight:700;padding:0.1rem 0.45rem;border-radius:3px;background:#FEF3C7;color:#92400E;margin:0 0.2rem;text-transform:uppercase;letter-spacing:0.05em;">ED</span> Emergency Department &#8212; seizure broken without ICU admission.
+    </p>
+
+    <p style="font-size:0.77rem;color:var(--muted);margin-top:0.65rem;line-height:1.6;">
+        <strong>Semiology note:</strong> Typical onset is focal &#8212; gaze deviation (upward or lateral), abnormal breathing pattern, reduced responsiveness. Clonic movements are not always prominent and absence of them should not delay treatment. Prior to Fintepla, viral illness was the consistent trigger for febrile episodes.
+    </p>
+</section>
+
+</div>
+</div>
+
+<footer>
+    <p>Emergency card for Alessandro Di Siena &#8212; Dravet Syndrome, SCN1A 5&#8242;UTR variant, Hamburg 2026.</p>
+    <p><a href="../">&#8592; Full profile: His Story, Genetics, Resources</a></p>
+    <p style="margin-top:0.6rem;font-size:0.7rem;opacity:0.85;">This is not medical advice. All clinical decisions should involve qualified medical professionals familiar with the patient.</p>
+</footer>
+
+</body>
+</html>
