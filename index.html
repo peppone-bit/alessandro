@@ -19,8 +19,6 @@ strong{font-weight:600}
 .lang-btn.active{background:#EEEDF9;border-color:#C0BCEA;font-weight:500}
 .lang-btn:hover:not(.active){background:#F5F4FD}
 .lang-flag{font-size:16px;line-height:1}
-.sos-link{font-size:13px;color:#8B2800;background:#FFF0EB;border:1px solid #F5C0A8;border-radius:5px;padding:5px 13px;font-weight:500;white-space:nowrap}
-.sos-link:hover{background:#FFE4D6;text-decoration:none}
 
 /* Banner */
 .banner{background:#F0EEFB;border-bottom:2px solid #C0BCEA;padding:44px 24px 38px}
@@ -94,7 +92,7 @@ footer p{max-width:760px;margin:0 auto;font-size:13px;color:#666;line-height:1.6
     <button class="lang-btn" id="btn-de" onclick="setLang('de')"><span class="lang-flag">🇩🇪</span> DE</button>
     <button class="lang-btn" id="btn-it" onclick="setLang('it')"><span class="lang-flag">🇮🇹</span> IT</button>
   </div>
-  <a href="/sos/" class="sos-link" id="sos-link">⚠ Emergency card for medical staff →</a>
+
 </div>
 
 <!-- Banner -->
@@ -486,21 +484,18 @@ const T = {
   en: {
     title: "Alessandro — a family's account of living with Dravet Syndrome",
     sub: "Written for other families — not for medical teams. Our honest account of what happened, what helped, and what we wish we'd known earlier.",
-    sos: "⚠ Emergency card for medical staff →",
     footer: "This account reflects our family's experience. It is not medical advice. Medication doses, rescue protocols and contraindication lists should always be discussed and confirmed with your child's neurology team. Last updated: May 2026",
     pageTitle: "Alessandro — Living with Dravet Syndrome"
   },
   de: {
     title: "Alessandro — der Bericht einer Familie über das Leben mit dem Dravet-Syndrom",
     sub: "Geschrieben für andere Familien — nicht für medizinisches Fachpersonal. Unser ehrlicher Bericht über das, was passiert ist, was geholfen hat, und was wir uns gewünscht hätten, früher gewusst zu haben.",
-    sos: "⚠ Notfallkarte für medizinisches Personal →",
     footer: "Dieser Bericht spiegelt die Erfahrungen unserer Familie wider. Er ist keine medizinische Beratung. Medikamentendosen, Notfallprotokolle und Kontraindikationslisten sollten immer mit dem Neurologieteam Ihres Kindes besprochen werden. Zuletzt aktualisiert: Mai 2026",
     pageTitle: "Alessandro — Leben mit dem Dravet-Syndrom"
   },
   it: {
     title: "Alessandro — il racconto di una famiglia che vive con la Sindrome di Dravet",
     sub: "Scritto per le altre famiglie — non per il personale medico. Il nostro racconto onesto di quello che è successo, di cosa ha aiutato, e di quello che avremmo voluto sapere prima.",
-    sos: "⚠ Scheda d'emergenza per il personale medico →",
     footer: "Questo resoconto riflette l'esperienza della nostra famiglia. Non è un consiglio medico. Dosi di farmaci, protocolli d'emergenza e liste di controindicazioni devono sempre essere discussi con il team neurologico di vostro figlio. Ultimo aggiornamento: maggio 2026",
     pageTitle: "Alessandro — Vivere con la Sindrome di Dravet"
   }
@@ -511,7 +506,6 @@ function setLang(lang) {
   document.getElementById('page-title').textContent = T[lang].pageTitle;
   document.getElementById('banner-title').innerHTML = '<span aria-hidden="true" style="color:#7B5EA7;margin-right:6px">💜</span>' + T[lang].title;
   document.getElementById('banner-sub').textContent = T[lang].sub;
-  document.getElementById('sos-link').textContent = T[lang].sos;
   document.getElementById('footer-text').textContent = T[lang].footer;
   ['en','de','it'].forEach(function(l) {
     document.getElementById('content-' + l).classList.toggle('active', l === lang);
