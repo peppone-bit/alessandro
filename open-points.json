@@ -1,0 +1,174 @@
+{
+  "updated": "2026-06-02",
+  "timeline_version": "6.5",
+  "items": [
+    {
+      "id": 1,
+      "title": "SBA — re-application",
+      "detail": "SCN1A confirmation + WISC-V IQ 58 + behavioural escalation may warrant higher GdB, Merkzeichen G, or longer validity. Prepare fresh Antrag with updated medical evidence.",
+      "urgency": "act-soon",
+      "lane": "admin",
+      "status": "todo"
+    },
+    {
+      "id": 2,
+      "title": "Cardiology — QTc + PFO follow-up",
+      "detail": "2026 UKE referral flagged shortened QTc. Aug 2018 ECG: QTc 290 ms. PFO (small L→R shunt, Jul 2018) — closure not confirmed. ECG + echo were normal Feb 2021 but Fintepla cardiac monitoring warrants current review. On next Dr. Johannsen appointment list.",
+      "urgency": "act-soon",
+      "lane": "neurology",
+      "status": "todo"
+    },
+    {
+      "id": 3,
+      "title": "Emergency protocol — sign & distribute",
+      "detail": "Apr 2025 incident email proposed binding protocol: First-aid → Schulleitung → Rettungsdienst → Eltern. Was it ever signed and distributed to school, Hort, and holidays?",
+      "urgency": "act-soon",
+      "lane": "medical-care",
+      "status": "todo"
+    },
+    {
+      "id": 4,
+      "title": "Komplexleistung Frühförderung — continuation?",
+      "detail": "Kinderkompass plan ran through Nov 2023. No explicit IFF continuation found. Did therapy move fully to school-based delivery, or was a new IFF plan approved before school start summer 2024?",
+      "urgency": "pending",
+      "lane": "therapies",
+      "status": "todo"
+    },
+    {
+      "id": 5,
+      "title": "WISC-V re-assessment",
+      "detail": "Prof. Wiegand-Grefe recommends re-assessment in 1–2 years (~Q1 2027 or earlier if needed for school decisions).",
+      "urgency": "pending",
+      "lane": "therapies",
+      "status": "todo"
+    },
+    {
+      "id": 6,
+      "title": "Pflegegrad 3 Bescheid — file copy",
+      "detail": "SBK (Cornelia Hedel) sent confirmation certificate 10 Apr 2026. Original Bescheid from Medizinischer Dienst Nord not visible in OneDrive — store locally for the file.",
+      "urgency": "pending",
+      "lane": "admin",
+      "status": "todo"
+    },
+    {
+      "id": 7,
+      "title": "Familienassistenz — application",
+      "detail": "Flagged in Apr 2025 Sunje Dörner advice; no application visible in mailbox. Apply via Fachamt Eingliederungshilfe.",
+      "urgency": "act-soon",
+      "lane": "admin",
+      "status": "todo"
+    },
+    {
+      "id": 8,
+      "title": "Verlängerte Zieldifferenz — WOI trajectory",
+      "detail": "Curriculum-differentiation extension to end of 3rd grade (Dec 2025 decision) hinges on WOI outcomes. Family-therapy session 3 June 2026 (Felix Grimm) is part of this trajectory.",
+      "urgency": "act-soon",
+      "lane": "admin",
+      "status": "todo"
+    },
+    {
+      "id": 9,
+      "title": "MRI follow-up",
+      "detail": "Aug 2018 Foggia MRI: bilateral posterior periventricular white matter changes, explicit follow-up recommended. No deliberate comparison with Dec 2020 UKE MRI documented. Raise with Dr. Johannsen.",
+      "urgency": "pending",
+      "lane": "neurology",
+      "status": "todo"
+    },
+    {
+      "id": 10,
+      "title": "Factor XII — anaesthesia briefing",
+      "detail": "aPTT ~32.70% (constitutional Factor XII deficiency). Does NOT increase bleeding risk but flags on pre-op screens. Confirm clearly noted in current UKE record. On next Dr. Johannsen appointment list.",
+      "urgency": "pending",
+      "lane": "medical-care",
+      "status": "todo"
+    },
+    {
+      "id": 11,
+      "title": "MTHFR — repeat homocysteine check",
+      "detail": "MTHFR heterozygous mutation; homocysteine 6.2 μmol/L (normal) at age 7 months. No current clinical consequence. Opportunistic repeat check appropriate at next metabolic review.",
+      "urgency": "pending",
+      "lane": "medical-care",
+      "status": "todo"
+    },
+    {
+      "id": 12,
+      "title": "Apgar score + WISC-V test dates",
+      "detail": "Family record: Apgar 9/10. Jul 2018 NPI ward chart may note 3/5. Raise at Familienambulanz 3 Jun 2026 (Felix Grimm) for WISC-V date clarification and Apgar confirmation from birth record.",
+      "urgency": "act-soon",
+      "lane": "therapies",
+      "status": "todo"
+    },
+    {
+      "id": 13,
+      "title": "Logopädie provider — URGENT",
+      "detail": "F80.1 active with no provider. Fuhlsbüttel on waitlist since Jan 2026. Email sent to Frau Rieck (Hinsbleek) 28 May — response pending. Ask Felix Grimm at 3 Jun appointment. Verordnung from Dr. MacGowan required.",
+      "urgency": "urgent",
+      "lane": "therapies",
+      "status": "todo"
+    },
+    {
+      "id": 14,
+      "title": "Clinical trials — contact Dr. Johannsen",
+      "detail": "(a) Zorevunersen (STK-001) / EMPEROR Phase 3 — reversible ASO, ~49% on same regimen; explore first. (b) ETX101 / ENDEAVOR — gene therapy, irreversible. Risk: seizure-free status may disqualify. On next Dr. Johannsen appointment list.",
+      "urgency": "act-soon",
+      "lane": "neurology",
+      "status": "todo"
+    },
+    {
+      "id": 15,
+      "title": "NightWatch+ — awaiting SBK decision",
+      "detail": "Application submitted 30 May 2026. LivAssured confirmed processing to SBK 1 Jun 2026. Post originals to LivAssured BV PF 111322, 47814 Krefeld. No further action until SBK responds.",
+      "urgency": "act-soon",
+      "lane": "medical-care",
+      "status": "todo"
+    },
+    {
+      "id": 16,
+      "title": "UKE Wirbelsäulenchirurgie — appointment",
+      "detail": "Referral sent by Physio-Logisch May 2026. Appointment not yet scheduled. Follow up.",
+      "urgency": "act-soon",
+      "lane": "therapies",
+      "status": "todo"
+    },
+    {
+      "id": 17,
+      "title": "Public webpage — 2 gates remaining",
+      "detail": "Domain https://ale-dravet.org/ registered. Remaining: (1) Dr. Johannsen formal review of SE table + Never Administer list; (2) fever protocol formal confirmation. Once cleared: send to Hinsbleek, order bracelet, notify Dravet-Syndrom e.V.",
+      "urgency": "act-soon",
+      "lane": "webpage",
+      "status": "todo"
+    },
+    {
+      "id": 18,
+      "title": "Hinsbleek — emergency protocol refresh",
+      "detail": "Send updated protocol once webpage gates are cleared. Last formal notification ~May 2025. Protocol: Buccolam 7.5 mg immediately, 112, hospital always even if seizure stops. Schulbegleitung must know.",
+      "urgency": "act-soon",
+      "lane": "medical-care",
+      "status": "todo"
+    },
+    {
+      "id": 19,
+      "title": "Sveva — genetic testing",
+      "detail": "Does Sveva carry the SCN1A 5'UTR variant? She has never had a seizure as of May 2026. Discuss with Dr. Johannsen at an appropriate time.",
+      "urgency": "pending",
+      "lane": "genetics",
+      "status": "todo"
+    },
+    {
+      "id": 20,
+      "title": "RESIDRAS registry enrollment",
+      "detail": "Dr. Johannsen replied 21 May 2026: UKE in internal discussions; ethics committee + data protection are barriers; 'in principle interested.' On next Dr. Johannsen appointment list.",
+      "urgency": "act-soon",
+      "lane": "genetics",
+      "status": "todo"
+    },
+    {
+      "id": 21,
+      "title": "Bexicaserin — watch list",
+      "detail": "Selective 5-HT₂C agonist, same mechanism as Fintepla without cardiac 5-HT₂B risk. Phase 3 starting Germany Nov 2025. Not relevant while seizure-free. Mention to neurologist as future option if Fintepla needs replacing. Commercial availability ~2028–2030.",
+      "urgency": "pending",
+      "lane": "neurology",
+      "status": "todo"
+    }
+  ]
+}
