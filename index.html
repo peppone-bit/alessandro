@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+<head>
+<meta charset="UTF-8">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SQ4YTC3N76"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SQ4YTC3N76');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Alessandro — Living with Dravet Syndrome</title>
+<meta name="description" content="A family's honest account of living with Dravet Syndrome — written for other families.">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:17px;line-height:1.75;color:#2B292A;background:#F4F7F8}
+a{color:#5149C1;text-decoration:none}
+a:hover{text-decoration:underline}
+strong{font-weight:600}
+
+/* Language bar */
+.lang-bar{display:flex;justify-content:flex-end;align-items:center;padding:10px 24px;background:#fff;border-bottom:1px solid #DDD9F5;position:sticky;top:0;z-index:100}
+.lang-flags{display:flex;gap:6px;align-items:center}
+.lang-btn{background:none;border:1px solid transparent;border-radius:5px;padding:5px 11px;font-size:13px;cursor:pointer;color:#5149C1;display:flex;align-items:center;gap:6px;font-family:inherit;transition:background .15s}
+.lang-btn.active{background:#EEEDF9;border-color:#C0BCEA;font-weight:500}
+.lang-btn:hover:not(.active){background:#F5F4FD}
+.lang-flag{font-size:16px;line-height:1}
+
+/* Banner */
+.banner{background:#F0EEFB;border-bottom:2px solid #C0BCEA;padding:44px 24px 38px}
+.banner-inner{max-width:760px;margin:0 auto}
+.banner h1{font-size:26px;font-weight:500;color:#2B2470;line-height:1.32;margin-bottom:10px}
+.banner p{font-size:16px;color:#5149C1;line-height:1.65}
+
+/* Main */
+main{max-width:760px;margin:0 auto;padding:44px 24px 72px}
+.content{display:none}
+.content.active{display:block}
+
+/* Typography */
+h2{font-size:21px;font-weight:500;color:#5149C1;margin:2.8rem 0 0.8rem;line-height:1.3}
+h2::before{content:'';display:block;width:28px;height:3px;background:#5149C1;margin-bottom:9px;border-radius:2px}
+h2:first-child{margin-top:0}
+h3{font-size:17px;font-weight:600;color:#2B2470;margin:1.8rem 0 0.5rem}
+p{margin-bottom:1rem}
+p:last-child{margin-bottom:0}
+ul{margin:0.5rem 0 1rem 1.4rem}
+li{margin-bottom:0.4rem;line-height:1.65}
+hr{border:none;border-top:1px solid #DDD9F5;margin:2.5rem 0}
+blockquote{border-left:3px solid #C0BCEA;padding:0.75rem 1.25rem;margin:1.5rem 0;color:#555;font-style:italic}
+
+/* Seizure-free badge */
+.badge{display:inline-flex;align-items:center;gap:8px;background:#EEEDF9;color:#2B2470;border:1px solid #C0BCEA;font-size:14px;font-weight:500;padding:6px 16px;border-radius:20px;margin-bottom:1.5rem}
+.badge-dot{width:8px;height:8px;border-radius:50%;background:#5149C1;flex-shrink:0}
+
+/* Episode blocks (worst period) */
+.episode{border-left:3px solid #C0BCEA;padding:0.5rem 0 0.5rem 1rem;margin-bottom:1.5rem}
+.episode-date{font-weight:600;color:#2B2470;font-size:15px;margin-bottom:0.3rem}
+.episode p{margin-bottom:0;font-size:16px;color:#3A3840}
+
+/* Bullet list styled */
+.learn-list{list-style:none;margin:0.5rem 0 1rem 0;padding:0}
+.learn-list li{padding-left:1.4rem;position:relative;margin-bottom:0.75rem;line-height:1.7}
+.learn-list li::before{content:'';position:absolute;left:0;top:0.65rem;width:7px;height:7px;border-radius:50%;background:#5149C1;flex-shrink:0}
+
+/* Medication cards */
+.med-card{background:#F8F7FE;border:1px solid #DDD9F5;border-radius:8px;padding:18px 22px;margin:1.2rem 0}
+.med-card h3{margin-top:0}
+
+/* Resources */
+.resource{margin-bottom:1.5rem}
+.resource a{font-weight:500;color:#5149C1}
+.resource p{margin-top:0.25rem;font-size:15px;color:#555}
+
+/* Contact box */
+.contact-box{background:#F0EEFB;border:1px solid #C0BCEA;border-radius:8px;padding:20px 24px;margin-top:2.5rem}
+.contact-box p{font-size:15px;color:#333}
+.contact-box a{color:#5149C1;font-weight:500}
+
+/* Footer */
+footer{background:#F0EEFB;border-top:1px solid #C0BCEA;padding:24px}
+footer p{max-width:760px;margin:0 auto;font-size:13px;color:#666;line-height:1.65}
+
+@media(max-width:640px){
+  .banner h1{font-size:21px}
+  .lang-bar{padding:8px 14px}
+  main{padding:32px 16px 56px}
+  .banner{padding:32px 16px 28px}
+}
+</style>
+</head>
+<body>
+
+<!-- Language bar -->
+<div class="lang-bar">
+  <div class="lang-flags">
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')"><span class="lang-flag">🇬🇧</span> EN</button>
+    <button class="lang-btn" id="btn-de" onclick="setLang('de')"><span class="lang-flag">🇩🇪</span> DE</button>
+    <button class="lang-btn" id="btn-it" onclick="setLang('it')"><span class="lang-flag">🇮🇹</span> IT</button>
+  </div>
+
+</div>
+
+<!-- Banner -->
+<div class="banner">
+  <div class="banner-inner">
+    <h1 id="banner-title"></h1>
+    <p id="banner-sub"></p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ENGLISH CONTENT -->
+<!-- ============================================================ -->
+<main>
+<div class="content" id="content-en">
+
+  <div class="badge"><span class="badge-dot"></span> Seizure-free since March 2022</div>
+
+  <p>Alessandro is eight years old. He lives in Hamburg with his parents — both Italian — his younger sister Sveva, and Shumba, their Labrador. He loves the Avengers, with Hulk as his undisputed favourite. His favourite colour is green. He is passionate about pesto — which he would happily put on everything — and pommes frites. He loves books, the bigger the better, and likes to carry them around with him. He is also one of the most affectionate people you will meet. He also has Dravet Syndrome, a rare and severe form of epilepsy. This is our account of what that has meant for him, and for us.</p>
+
+  <h2>Where we are today</h2>
+  <p>Alessandro has been <strong>seizure-free since March 2022</strong>. He is on a stable regimen of two medications — Fintepla (fenfluramine) and Orfiril Long (valproate) — and has been on this combination for over three years now. That's not a cure. Dravet Syndrome doesn't go away. But it's a stability we once couldn't imagine, and it came after years that were genuinely brutal.</p>
+
+  <h2>The beginning — Italy, 2018</h2>
+  <p>Alessandro's first seizure came when he was just four and a half months old — about twenty minutes after a routine meningitis vaccination. It was subtle: just some eye movements and head turning — not the dramatic convulsing you might picture from a seizure, which is part of why it didn't immediately read as one. We didn't dismiss it. The frequency with which it repeated made that impossible. Epilepsy was diagnosed that same month.</p>
+  <p>The early treatment approach, guided by a specialist in Florence who was already experienced with Dravet, was Stiripentol (Diacomit) combined with Clobazam (Frisium). Even at that stage — before we had a confirmed genetic cause — Fintepla was already mentioned as a possible next step if things didn't hold. That note was filed away. It would take four more years to become relevant.</p>
+  <p>In July 2018, when Alessandro was six months old, he had his first documented Status Epilepticus (SE). It was febrile — triggered by a fever — and biphasic. He seized at home for around twenty minutes during a car journey, stopped briefly when he reached hospital, then started again in the paediatric ward. It didn't stop on its own. He needed ICU-level care, though he wasn't intubated and was breathing independently. He recovered, and we moved forward.</p>
+
+  <h2>Moving to Hamburg — and a diagnosis that stayed in question</h2>
+  <p>We relocated to Hamburg in late November 2018. Alessandro was ten months old. His care transferred to the neuropaediatric team at UKE (Universitätsklinikum Hamburg-Eppendorf), who became his ongoing neurology team.</p>
+  <p>Here is something important to understand about what followed, because many families find themselves in the same situation: <strong>the Dravet diagnosis was not accepted in Hamburg.</strong> Not at first, and not for years.</p>
+  <p>The Italian neurologists in Florence — a team with deep experience in Dravet — had made a clinical Dravet diagnosis on the basis of Alessandro's seizure semiology alone. But when we arrived in Hamburg, the picture looked different to a fresh team. Alessandro's seizures at that stage were frequent but shorter, typically responding to rescue medication, without the catastrophic status epilepticus pattern that makes the diagnosis unmistakable. For classic Dravet, the presentation was considered mild.</p>
+  <p>And then came the genetics. In late 2018, the Italian team had ordered an SCN1A gene panel. The result came back <strong>negative</strong> — SCN1A clear, no pathological findings in any of the other epilepsy-related genes tested. When UKE received this report in December 2019, it appeared to argue against Dravet. SCN1A accounts for the great majority of confirmed Dravet cases; if the gene was clear, perhaps the diagnosis was wrong.</p>
+  <p>It wasn't wrong. But we didn't know that yet. What the test had actually missed — invisibly, undetectably — was a large deletion in the <em>regulatory region</em> of SCN1A, a stretch of DNA that sits upstream of the gene itself and controls whether it switches on. Standard genetic panels don't read that region. Exome sequencing doesn't read that region. The only test that can detect it is whole-genome sequencing, and that would not happen for another seven years.</p>
+  <p>In the meantime, we were left in a place many Dravet families will recognise: a child who looked and behaved like Dravet in every clinical way, a team treating it largely as Dravet, and no genetic confirmation to close the question definitively.</p>
+
+  <h2>The worst period — October 2020 to February 2021</h2>
+  <p>This is the part of Alessandro's story that is hardest to write. But before we get to the worst of it, it's worth being honest about something that often gets lost in medical summaries: the eight Status Epilepticus episodes documented in his history were the most severe events, but they were not the only seizures. Between 2018 and 2022, Alessandro had many more seizures that didn't reach SE level but were still frightening, still required rescue medication, and still accumulated into years of interrupted sleep, constant vigilance, and the exhaustion that goes with it. The SE count is the clinical headline. The real burden was much broader.</p>
+  <p>In the space of four months — October 2020 to February 2021 — he had <strong>six Status Epilepticus episodes</strong>. Six. Some required intubation and mechanical ventilation. Several required ICU admission. Every one of them was terrifying.</p>
+  <p>Several required intubation and mechanical ventilation. Several required ICU admission. Some were triggered by viral illness; one came without any fever at all. Each one required a different escalation sequence to stop. He survived every one and came home every time. But that period left a mark on our whole family that doesn't just go away.</p>
+  <p>The cluster also resolved the diagnostic question that had been hanging open since 2018. Midway through it, the UKE team formally wrote, for the first time, that the clinical picture was <em>"most consistent with Dravet syndrome."</em> Not confirmed. Not definitive. But named. It had taken six ICU admissions to cross that threshold.</p>
+
+  <h2>What we learned about Alessandro's seizures</h2>
+  <ul class="learn-list">
+    <li><strong>Viral illness was almost always the trigger</strong> — Rhinovirus, Enterovirus, Bocavirus. Any fever, even mild, carried real risk.</li>
+    <li><strong>Seizures typically started focally</strong> — gaze deviation (upward or to the side), abnormal breathing, reduced responsiveness. The dramatic convulsions you might picture from a seizure aren't always how it looks with Alessandro. Absence of visible shaking does <strong>not</strong> mean the seizure isn't serious.</li>
+    <li><strong>Buccolam (midazolam) at home often only partially worked.</strong> It would sometimes provide transient control but the seizure would restart. We learned not to wait and watch after the first dose — getting to hospital quickly was the right call.</li>
+    <li><strong>The window matters.</strong> The longer a seizure runs, the harder it is to stop, and the more medication it needs. Early escalation saved him.</li>
+  </ul>
+
+  <h2>The turning point — March 2022</h2>
+  <p>On 5 March 2022, Alessandro had his eighth documented SE. It came from sleep, with no fever. There was prolonged apnoea and aspiration risk. Another ICU admission. Buccolam at home, followed by IV Levetiracetam, IV Midazolam, and bag-mask ventilation.</p>
+  <p>That episode finally crossed a threshold. Fintepla (fenfluramine) — the medication that had been flagged as a potential next step back in Florence in 2018 — was started.</p>
+  <p><strong>It worked.</strong></p>
+  <p>Alessandro has been seizure-free since March 2022 — over three years, across eight documented Status Epilepticus episodes that began when he was six months old and ended with this one. His current dose of Fintepla 2.4 ml twice daily, combined with Orfiril Long 300 mg twice daily, has held steady. We don't know if it will last. We don't take it for granted. But it's real.</p>
+
+  <h2>His current medications — explained</h2>
+  <div class="med-card">
+    <h3>Fintepla (fenfluramine)</h3>
+    <p>Fintepla is a serotonin-releasing agent. It has a specific approval for Dravet Syndrome in Europe and was the major addition that appears to have achieved seizure control for Alessandro. It requires cardiac monitoring (echocardiogram) every six months because of historical concerns about heart valve effects at much higher doses — the Dravet dose is far lower, and Alessandro's cardiac assessments have been normal to date.</p>
+    <p>Alessandro takes <strong>2.4 ml twice daily</strong> (morning and evening).</p>
+  </div>
+  <div class="med-card">
+    <h3>Orfiril Long (valproate / valproic acid)</h3>
+    <p>Orfiril Long is a slow-release form of valproate, one of the established treatments for Dravet Syndrome. Alessandro had been on valproate since his early years in various forms. It remains part of his maintenance regimen.</p>
+    <p>Alessandro takes <strong>300 mg twice daily</strong> (morning and evening).</p>
+  </div>
+
+  <h2>Rescue medication</h2>
+  <h3>Buccolam (midazolam buccal)</h3>
+  <p>Buccolam is our first-line rescue medication. It's given buccally — absorbed through the inside of the cheek. We use the <strong>7.5 mg dose</strong>.</p>
+  <p>One thing we feel strongly about: <strong>we give it immediately, at the very start of a seizure, without waiting.</strong> We do not wait to see if the seizure will stop on its own. The risk of a prolonged seizure — and the damage it can cause — is far greater than the risk of giving a dose of Buccolam that turns out not to have been strictly necessary.</p>
+  <p>One thing we want other families to know: <strong>we call the ambulance at the same moment we give the Buccolam — not after.</strong> We do not wait to see if it works. Even if the seizure stops before the ambulance arrives, Alessandro still goes to hospital. Every time, without exception. If a second dose is needed, it can only be administered by medical staff — so the hospital needs to be in the picture from the start.</p>
+
+  <h3>Fever protocol — and why it's harder than it sounds</h3>
+  <p>Fever was Alessandro's most consistent trigger. We want to be honest about this, because the standard advice — "give antipyretics early, as soon as you see a fever" — is correct in principle but incomplete in practice.</p>
+  <p>The problem is that Alessandro's seizures were triggered by the <strong>sudden rise</strong> in temperature, not by sustained high fever. By the time we noticed the first sign — a warm forehead, a slightly flushed face — the temperature had often already spiked fast enough to trigger a seizure. The window between "he seems a bit warm" and "the seizure has already started" was sometimes minutes. Antipyretics take time to act. They couldn't reliably close that gap.</p>
+  <p><strong>Fever management in Dravet, before an effective seizure medication is in place, is genuinely difficult.</strong> Early antipyretics are the right instinct, but they are not a reliable prevention. That reality is worth naming, because other families deserve to hear it rather than feel they failed because a seizure happened despite their best efforts.</p>
+  <p>Since Fintepla, fever is no longer the threat it was. We still reach for antipyretics at the first sign — old habits — but the acute dread that used to come with any sniffles in the house is gone.</p>
+
+  <h2>The genetic answer — seven and a half years later</h2>
+  <p>In March 2026, Whole Genome Sequencing at our hospital in Hamburg finally gave us the answer: a large deletion in the <strong>5′UTR promoter region of SCN1A</strong> — the regulatory stretch of DNA that sits upstream of the gene itself and controls whether it switches on. Alessandro's copy of that region was broken. It had been broken from birth.</p>
+  <p>The reason it took so long to find is straightforward: standard genetic tests don't read that part of the genome. Gene panels don't cover it. Exome sequencing doesn't cover it. These tests are designed to read protein-coding regions. The regulatory region where Alessandro's deletion sits is non-coding. Whole Genome Sequencing is the only methodology that reads the entire genome, including those regions.</p>
+  <p>The variant was classified as <strong>likely pathogenic</strong>, supported by published cases of overlapping SCN1A promoter deletions confirmed as causal for Dravet syndrome.</p>
+  <p>This was the answer the Italian team had suspected since 2018. It confirmed what they had diagnosed clinically eight years earlier, and it ended the diagnostic limbo.</p>
+  <p>But here is something equally important to understand: Whole Genome Sequencing as a clinical tool only became widely available and interpretable in the years approaching 2026. The analytical frameworks needed to classify variants in non-coding regulatory regions have matured only recently. <strong>The earlier tests were not wrong. They did exactly what they were built to do.</strong> For other families: if your child has a Dravet clinical picture and genetic testing has come back negative, that is not the end of the story. Ask your neurologist specifically about Whole Genome Sequencing. It looks where the other tests don't — and the clinical tools to interpret what it finds are now genuinely there.</p>
+
+  <h2>The inheritance — mosaicism in the family</h2>
+  <p>There's an additional layer to this that we think matters for families, particularly if a parent has any history of seizures in their own childhood.</p>
+  <p>Alessandro's father carries <strong>the same SCN1A 5′UTR deletion</strong> — but only in approximately <strong>20% of his cells</strong>. This is somatic mosaicism. His own childhood epilepsy was milder and resolved in adolescence. He has been seizure-free since his early teens.</p>
+  <p>What this shows, in a concrete and personal way, is something already known in Dravet genetics: <strong>the same SCN1A variant can produce a full Dravet phenotype in one person and a much milder GEFS+-like epilepsy in another</strong>, depending on the proportion of affected cells and other genetic factors.</p>
+  <p><strong>If your child has a Dravet phenotype, you have had a negative exome, and either parent has any personal or family history of febrile seizures or childhood epilepsy:</strong> ask your neurologist about Whole Genome Sequencing. Mosaicism is a real possibility, and it changes both the diagnosis and the genetic counselling picture.</p>
+
+  <h2>Kita — and everything before school</h2>
+  <p>Getting Alessandro into childcare took longer than it should have. Hamburg has long Kita waiting lists in ordinary times; COVID stretched them further. By the time we found a place, he was well past the age most children start.</p>
+  <p>The first Kita required a nurse on-site to administer emergency medication. The insurance approved the cost. What followed was months of searching for a firm that had someone available — qualified nursing staff for a Kita posting are not easy to find. The firm we eventually found placed someone in the role; that person left for their own reasons, and neither the insurance nor we could find a replacement. The funding existed. The provider didn't.</p>
+  <p>When Alessandro did have a seizure at Kita — just one — the leadership restricted his hours to three a day. My wife spent much of that time in the car park outside, unable to go far in case she was needed. That is an honest picture of what those years looked like.</p>
+  <p>Things changed with Fintepla. Once the seizures were under control, we found an inclusion Kita where Alessandro was simply part of the group — known, accepted, at ease. It was a different experience entirely, and it gave us the first real glimpse of what life could look like for him.</p>
+
+  <h2>School</h2>
+  <p>Alessandro started primary school in August 2024. After we moved house in February 2025, he transferred to a special education school in northern Hamburg — and it was the right fit from the beginning.</p>
+  <p>At school, Alessandro has something that matters more than any document or formal designation: a teacher who knows him deeply, is experienced with children who need what he needs, and genuinely cares about him. That combination — experience and real affection — is rarer than it should be, and we are aware of how lucky we are to have found it. The other children are protective of him in the quiet way that sometimes happens when a class genuinely knows someone. He belongs there.</p>
+  <p>The practical framework is solid. Alessandro has a formal special educational needs designation with a primary focus on physical and motor development. His learning goals are individually tailored — he works towards objectives set for him, not the standard curriculum (Zieldifferenz). In January 2026, his Pflegegrad (formal care level in the German social support system) was raised from 2 to 3, reflecting the full scope of his daily needs. This opened the path to a full-time 1:1 Schulbegleitung — a dedicated aide who accompanies Alessandro through the entire school day, including breaks and transitions, monitors for seizure signs, and carries his emergency medication.</p>
+  <p>The one structural problem is therapy provision. The school offers Physiotherapy on-site, which is excellent. But Ergotherapie and Logopädie — both of which Alessandro needs — are not available at the school. Families have to source these externally, which means navigating Hamburg's waiting lists on their own.</p>
+
+  <h2>The Hort — and a fight worth having</h2>
+  <p>The GBS (the after-school programme that runs until 16:00) did not go smoothly when it started. The Hort team were still getting to know Alessandro, and some of his behaviours were misread. Without consulting us, the Hort reduced his permitted hours from 16:00 to 15:00, citing a lack of resources. They did this unilaterally.</p>
+  <p>We did not accept it. Alessandro is entitled to the full day. We filed a formal complaint, brought in the school authority and the regional inclusion ombudsman, and went through a series of meetings over several months. It was exhausting — the kind of exhausting that accumulates on top of everything else a Dravet family is already carrying. Eventually the Hort leadership made concrete changes: a reorganisation of personnel to provide dedicated supervision for Alessandro through to 16:00 every day. The situation is now resolved.</p>
+  <p>We found our way to the right support through <a href="https://lmbhh.de/" target="_blank" rel="noopener">Lebenshilfe Hamburg (LmB HH)</a>, whose guidance connected us with the ombudsman for inclusive education. Without that contact, navigating the authority process would have been significantly harder.</p>
+  <p>Other families in Germany will recognise the pattern: a system that doesn't move until it's pushed. You have every right to push. It takes more energy than it should, but it can work — and knowing where to find support makes a real difference.</p>
+
+  <h2>Schulbegleitung in Hamburg — what is changing, and how you can help</h2>
+  <p>From the 2026/27 school year, Hamburg's education authority (BSFB) has changed how Schulbegleitung — the school aides who help children with disabilities take part in school — is organised. Aides provided by voluntary-service workers (FSJ) are now arranged entirely through shared "combined measures", where one aide supports several children in a class or school, and staffing gaps are bridged with those shared aides. The authority says the approval criteria are unchanged, there is no cap, and that this is a refinement rather than a cut. Its own description is in the <a href="https://www.hamburg.de/politik-und-verwaltung/behoerden/bsfb/veroeffentlichungen/pressemeldungen/schulbegleitung-in-hamburg-wird-weiterentwickelt-1191650" target="_blank" rel="noopener">authority's press release</a>.</p>
+  <p>Many parents see it differently. According to the Hamburg Parents' Chamber (Elternkammer), about 540 cases were reassessed after the change, and of the 468 completed by September, 377 ended in a changed decision. For a child with epilepsy or other medical needs, a shared aide is a very different thing from a dedicated one. The Parents' Chamber has asked the authority to suspend the reorganisation (<a href="https://www.elternkammer-hamburg.de/2026/09/15/5961/" target="_blank" rel="noopener">resolution of 15 September 2026</a>).</p>
+  <p>A parent-run petition asks Hamburg's parliament to keep qualified staff rather than replace them with volunteers, to keep approvals fast and based on need, and to pause the reorganisation until it has been reviewed together with parents. It is a Hamburg <em>Volkspetition</em>: it needs 10,000 valid signatures, and only personal signatures on paper count. Print the form, sign it and post it by <strong>6 November 2026</strong>. We are signing it ourselves.</p>
+  <p><a href="https://www.keine-sparmassnahmen-zulasten-hamburgs-schulkinder.de/en.html#schulen" target="_blank" rel="noopener">→ Read about the petition and download the form</a> · <em>Not affiliated with us — we are signatories, not organisers.</em></p>
+
+  <h2>Development, therapies, and the gaps in between</h2>
+  <p>Beyond the seizure history, Alessandro lives with a profile that shapes every part of his day: significant cognitive impairment, a language delay with expressive speech as his particular challenge, and motor difficulties that affect both his posture and his fine motor control. He is bilingual in Italian and German — Italian is the language of home — and language has been a genuine relative strength within a profile that tests hard across the board. His comprehension is meaningfully stronger than what he can express; there is more going on inside than he can easily put into words.</p>
+  <p>He communicates warmly and directly, particularly with adults who know him. He approaches the people he trusts physically — a hand on the arm, a lean-in. He likes what he likes: Marvel, Star Wars, music. He knows his own mind. He is present. He participates.</p>
+  <p>Therapeutically, Alessandro has active support across several areas. Physiotherapy runs through school — a dedicated practice works with him on-site — and focuses on his hypotonic muscle tone, postural difficulties, and coordination. Ergotherapie supports fine motor skills and daily function. Psychomotorik runs weekly in a small group at school. The UKE Familienambulanz team provides ongoing consultation and support for the family.</p>
+  <p>The one significant gap is Logopädie — speech and language therapy. Alessandro has an active diagnosis of expressive language delay, and Logopädie is the therapy most directly aimed at it. He had a therapist during the previous school year; that ended, and finding a new provider has been genuinely hard. Waiting lists for Logopädie in Hamburg are long — and the picture is harder still for children with complex needs, where the therapy requires time, specialist knowledge, and experience that not every practice has. We have been searching for months. It remains unresolved. We name it here because other families in Germany will recognise this experience: the therapy your child needs most is often the one that is hardest to access.</p>
+
+  <hr>
+
+  <h2>Resources we'd point other families to</h2>
+  <div class="resource">
+    <a href="https://www.dravetregistry.eu" target="_blank" rel="noopener">RESIDRAS — International Dravet Syndrome Registry ↗</a>
+    <p>A multi-centre European patient registry. If you are considering participating, it connects your child's data to a broader research picture that advances understanding for all Dravet families.</p>
+  </div>
+  <div class="resource">
+    <a href="https://www.dravet.de" target="_blank" rel="noopener">Dravet-Syndrom e.V. (Germany) ↗</a>
+    <p>The German patient association. If you're navigating the German healthcare system with a Dravet child, this is the first community contact we'd suggest.</p>
+  </div>
+  <div class="resource">
+    <a href="https://www.dravetfoundation.org" target="_blank" rel="noopener">Dravet Syndrome Foundation (international) ↗</a>
+    <p>English-language foundation with clinical guidance, trial information, and family support resources.</p>
+  </div>
+
+  <div class="resource">
+    <a href="https://lmbhh.de/" target="_blank" rel="noopener">Lebenshilfe Hamburg (LmB HH) ↗</a>
+    <p>Hamburg's disability advocacy and support organisation. They connected us with the right ombudsman when we needed to escalate Alessandro's situation at the Hort. An essential contact for families navigating the Hamburg system.</p>
+  </div>
+
+  <div class="contact-box">
+    <p><strong>Get in touch</strong></p>
+    <p>If you are going through something similar and want to talk to another family who has been there, you are welcome to write to us at <a href="mailto:ale.dravet@gmail.com">ale.dravet@gmail.com</a>. We can't promise quick replies, but we read everything.</p>
+  </div>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- GERMAN CONTENT -->
+<!-- ============================================================ -->
+<div class="content" id="content-de">
+
+  <div class="badge"><span class="badge-dot"></span> Anfallsfrei seit März 2022</div>
+
+  <p>Alessandro ist acht Jahre alt. Er lebt in Hamburg mit seinen Eltern — beide Italiener — seiner jüngeren Schwester Sveva und Shumba, ihrem Labrador. Er liebt die Avengers, mit Hulk als unangefochtenem Favoriten. Seine Lieblingsfarbe ist Grün. Er ist begeistert von Pesto — das er am liebsten auf alles geben würde — und von Pommes frites. Er liebt Bücher, je größer desto besser, und trägt sie gerne überall mit sich. Er ist auch einer der herzlichsten Menschen, die man kennenlernen kann. Er hat außerdem das Dravet-Syndrom, eine seltene und schwere Form der Epilepsie. Dies ist unser Bericht darüber, was das für ihn — und für uns — bedeutet hat.</p>
+
+  <h2>Wo wir heute stehen</h2>
+  <p>Alessandro ist <strong>seit März 2022 anfallsfrei</strong>. Er nimmt zwei Medikamente — Fintepla (Fenfluramin) und Orfiril Long (Valproat) — und ist seit über drei Jahren mit dieser Kombination stabil. Das ist keine Heilung. Das Dravet-Syndrom verschwindet nicht. Aber es ist eine Stabilität, die wir uns einst nicht vorstellen konnten — und die nach Jahren kam, die wirklich furchtbar waren.</p>
+
+  <h2>Der Anfang — Italien, 2018</h2>
+  <p>Alessandros erster Anfall kam, als er gerade viereinhalb Monate alt war — etwa zwanzig Minuten nach einer routinemäßigen Meningitis-Impfung. Es war unauffällig: leichte Augenbewegungen und eine Kopfdrehung — keine dramatischen Krämpfe, wie man sie von einem Anfall erwartet, weshalb wir es nicht sofort als epileptischen Anfall erkannten. Wir haben es dennoch nicht abgetan. Die Häufigkeit, mit der es sich wiederholte, ließ uns keine andere Wahl. Noch im selben Monat wurde Epilepsie diagnostiziert.</p>
+  <p>Der frühe Behandlungsansatz — geleitet von einem Spezialisten in Florenz, der bereits umfangreiche Erfahrung mit Dravet hatte — war Stiripentol (Diacomit) kombiniert mit Clobazam (Frisium). Schon damals, bevor eine genetische Ursache gesichert war, wurde Fintepla als möglicher nächster Schritt erwähnt, falls die aktuelle Therapie nicht halten würde. Diese Information wurde abgelegt. Es sollte noch vier weitere Jahre dauern, bis sie vier Jahre später relevant werden sollte.</p>
+  <p>Im Juli 2018, als Alessandro sechs Monate alt war, hatte er seinen ersten dokumentierten Status epilepticus (SE). Er war febril — durch Fieber ausgelöst — und biphasisch. Er hatte zu Hause einen Anfall, der während der Fahrt ins Krankenhaus etwa zwanzig Minuten andauerte, beim Eintreffen im Krankenhaus kurz aussetzte und dann auf der Kinderstation erneut einsetzte. Der Anfall hörte nicht von selbst auf. Er brauchte intensivmedizinische Versorgung, wurde aber nicht intubiert und atmete selbstständig.</p>
+
+  <h2>Umzug nach Hamburg — und eine Diagnose, die in der Schwebe blieb</h2>
+  <p>Wir zogen Ende November 2018 nach Hamburg. Alessandro war zehn Monate alt. Seine Behandlung wurde an das neuropädiatrische Team des UKE (Universitätsklinikum Hamburg-Eppendorf) übergeben.</p>
+  <p>Hier ist etwas Wichtiges zu verstehen, das auf viele Familien zutrifft: <strong>Die Dravet-Diagnose wurde in Hamburg nicht akzeptiert.</strong> Nicht zunächst, und nicht über Jahre.</p>
+  <p>Die italienischen Neurologen in Florenz hatten eine klinische Dravet-Diagnose allein aufgrund von Alessandros Anfallssemiologie gestellt. Als wir in Hamburg ankamen, wirkte das klinische Bild auf das neue Team jedoch anders. Alessandros Anfälle waren häufig aber kürzer, sprachen in der Regel auf Notfallmedikation an und zeigten nicht das katastrophale Status-epilepticus-Muster, das die Diagnose unverkennbar macht.</p>
+  <p>Dann kam die Genetik. Ende 2018 hatte das Florenzteam ein SCN1A-Gen-Panel angeordnet. Das Ergebnis kam <strong>negativ</strong> zurück. Als das UKE diesen Befund Ende 2019 erhielt, schien er gegen Dravet zu sprechen. SCN1A erklärt die große Mehrheit der bestätigten Dravet-Fälle — wenn das Gen unauffällig war, war vielleicht die Diagnose falsch. Sie war nicht falsch. Aber das wussten wir damals noch nicht.</p>
+  <p>Was dem Test entgangen war, war eine große Deletion in der <em>regulatorischen Region</em> von SCN1A — einem DNA-Abschnitt, der vor dem Gen selbst liegt und steuert, ob es sich einschaltet. Standard-Genpanels lesen diese Region nicht. Exom-Sequenzierungen lesen diese Region nicht. Der einzige Test, der sie erfassen kann, ist die Ganzgenom-Sequenzierung — und die sollte erst sieben Jahre später stattfinden.</p>
+
+  <h2>Die schlimmste Zeit — Oktober 2020 bis Februar 2021</h2>
+  <p>In einem Zeitraum von vier Monaten hatte er <strong>sechs Status-epilepticus-Episoden</strong>. Einige erforderten Intubation und maschinelle Beatmung, mehrere Intensivaufnahmen. Einige wurden durch Virusinfektionen ausgelöst; eine kam ohne Fieber. Er überlebte jede einzelne und kam jedes Mal nach Hause — aber dieser Zeitraum hat unsere ganze Familie auf eine Weise geprägt, die einfach nicht verschwindet.</p>
+  <p>Dieser Cluster löste auch die diagnostische Frage, die seit 2018 offen geblieben war. Mitten in diesem Cluster schrieb das UKE-Team zum ersten Mal, dass das klinische Bild am ehesten einem <em>„Dravet-Syndrom entspricht."</em> Nicht bestätigt. Nicht definitiv. Aber benannt. Es hatte sechs Intensivaufnahmen gebraucht, um diese Schwelle zu überschreiten.</p>
+
+  <h2>Was wir über Alessandros Anfälle gelernt haben</h2>
+  <ul class="learn-list">
+    <li><strong>Virusinfektionen waren fast immer der Auslöser</strong> — Rhinovirus, Enterovirus, Bocavirus. Jedes Fieber, selbst ein mildes, bedeutete ein echtes Risiko.</li>
+    <li><strong>Anfälle begannen typischerweise fokal</strong> — Blickdeviation, veränderte Atmung, eingeschränkte Reaktionsfähigkeit. Das Fehlen sichtbarer Zuckungen bedeutet <strong>nicht</strong>, dass der Anfall nicht ernst ist.</li>
+    <li><strong>Buccolam wirkte zu Hause oft nur teilweise.</strong> Wir lernten, nach der ersten Dosis nicht abzuwarten — schnell ins Krankenhaus zu kommen war die richtige Entscheidung.</li>
+    <li><strong>Das Zeitfenster zählt.</strong> Je länger ein Anfall andauert, desto schwieriger ist er zu stoppen. Frühes Eskalieren hat ihm das Leben gerettet.</li>
+  </ul>
+
+  <h2>Der Wendepunkt — März 2022</h2>
+  <p>Am 5. März 2022 hatte Alessandro seinen achten dokumentierten SE. Er kam aus dem Schlaf, ohne Fieber. Prolongierte Apnoe und Aspirationsgefahr. Erneut Intensivaufnahme.</p>
+  <p>Diese Episode überschritt schließlich eine Schwelle. Fintepla (Fenfluramin) — das Medikament, das bereits 2018 in Florenz als möglicher nächster Schritt genannt worden war — wurde begonnen. <strong>Es wirkte.</strong></p>
+  <p>Alessandro ist seit März 2022 anfallsfrei. Seine aktuelle Dosis — Fintepla 2,4 ml zweimal täglich, Orfiril Long 300 mg zweimal täglich — ist stabil geblieben. Wir wissen nicht, ob die anfallsfreie Zeit anhalten wird. Wir nehmen sie nicht als selbstverständlich hin. Aber sie ist real.</p>
+
+  <h2>Seine aktuellen Medikamente — erklärt</h2>
+  <div class="med-card">
+    <h3>Fintepla (Fenfluramin)</h3>
+    <p>Fintepla ist ein Serotonin-freisetzender Wirkstoff mit spezifischer Zulassung für das Dravet-Syndrom in Europa. Es erfordert alle sechs Monate eine Herzüberwachung (Echokardiogramm), da es historische Bedenken zu Herzklappenschäden bei sehr viel höheren Dosen gab — die bei Dravet eingesetzte Dosis ist deutlich niedriger. Alessandros Herzuntersuchungen waren bisher normal.</p>
+    <p>Alessandro nimmt <strong>2,4 ml zweimal täglich</strong> (morgens und abends).</p>
+  </div>
+  <div class="med-card">
+    <h3>Orfiril Long (Valproat)</h3>
+    <p>Orfiril Long ist eine Retardform von Valproat, einem der etablierten Behandlungsmittel für das Dravet-Syndrom. Alessandro nahm Valproat schon seit seinen frühen Jahren in verschiedenen Formen. Es bleibt Teil seines Erhaltungsschemas.</p>
+    <p>Alessandro nimmt <strong>300 mg zweimal täglich</strong> (morgens und abends).</p>
+  </div>
+
+  <h2>Notfallmedikation</h2>
+  <h3>Buccolam (Midazolam bukkal)</h3>
+  <p>Buccolam ist unser Erstlinien-Notfallmedikament, bukkal verabreicht. Wir verwenden die <strong>Dosis von 7,5 mg</strong>.</p>
+  <p><strong>Wir geben es sofort, beim allerersten Zeichen eines Anfalls, ohne zu warten.</strong> Das Risiko eines prolongierten Anfalls ist weit größer als das Risiko, eine Dosis zu geben, die sich im Nachhinein als nicht zwingend notwendig herausstellt.</p>
+  <p><strong>Wir rufen den Rettungswagen im selben Moment, in dem wir das Buccolam geben — nicht danach.</strong> Selbst wenn der Anfall aufhört, bevor der Rettungswagen eintrifft, fährt Alessandro trotzdem ins Krankenhaus. Jedes Mal, ohne Ausnahme. Wenn eine zweite Dosis notwendig ist, kann diese nur vom medizinischen Personal verabreicht werden.</p>
+
+  <h3>Fieberprotokoll — und warum es schwieriger ist als es klingt</h3>
+  <p>Fieber war Alessandros beständigster Auslöser. Die Standardempfehlung — „frühzeitig Antipyretika geben" — ist richtig, aber unvollständig. Alessandros Anfälle wurden durch den <strong>plötzlichen Anstieg</strong> der Temperatur ausgelöst. Das Zeitfenster zwischen „er scheint etwas warm" und „der Anfall hat bereits begonnen" war manchmal nur Minuten.</p>
+  <p><strong>Fiebermanagement bei Dravet ist, bevor ein wirksames Anfallsmedikament vorhanden ist, wirklich schwierig.</strong> Das sollten andere Familien wissen — anstatt das Gefühl zu haben, versagt zu haben, weil ein Anfall trotz aller Bemühungen auftrat.</p>
+
+  <h2>Die genetische Antwort — siebeneinhalb Jahre später</h2>
+  <p>Im März 2026 ergab die Ganzgenom-Sequenzierung am UKE Hamburg die Antwort: eine große Deletion in der <strong>5′UTR-Promotorregion von SCN1A</strong>. Alessandros Kopie dieser Region war defekt — von Geburt an.</p>
+  <p>Standard-Gentests lesen diesen Teil des Genoms nicht. Gen-Panels decken ihn nicht ab. Exom-Sequenzierungen decken ihn nicht ab. Nur die Ganzgenom-Sequenzierung liest das gesamte Genom, einschließlich dieser Regionen.</p>
+  <p><strong>Die früheren Tests waren nicht falsch. Sie taten genau das, wofür sie konzipiert wurden.</strong> Für andere Familien: Wenn Ihr Kind ein klinisches Dravet-Bild hat und Gentests negativ waren, fragen Sie Ihren Neurologen gezielt nach der Ganzgenom-Sequenzierung.</p>
+
+  <h2>Die Vererbung — Mosaizismus in der Familie</h2>
+  <p>Alessandros Vater trägt <strong>dieselbe SCN1A-5′UTR-Deletion</strong> — aber nur in ungefähr <strong>20% seiner Zellen</strong>. Somatischer Mosaizismus. Seine eigene Kindheitsepilepsie war milder und klang in der Adoleszenz ab.</p>
+  <p><strong>Dieselbe SCN1A-Variante kann bei einer Person einen vollständigen Dravet-Phänotyp und bei einer anderen eine viel mildere GEFS+-ähnliche Epilepsie erzeugen.</strong> Wenn Ihr Kind einen Dravet-Phänotyp hat, Sie ein negatives Exom hatten und ein Elternteil eine Anfallsgeschichte hat: Fragen Sie nach der Ganzgenom-Sequenzierung.</p>
+
+  <h2>Kita — und alles vor der Schule</h2>
+  <p>Die Suche nach einem Kita-Platz für Alessandro dauerte länger als sie hätte müssen. Hamburg hat lange Wartelisten in normalen Zeiten; COVID verlängerte sie weiter. Als wir endlich einen Platz fanden, war er weit über das Alter, in dem die meisten Kinder anfangen.</p>
+  <p>Die erste Kita erforderte eine Pflegekraft vor Ort, um im Anfallsfall Notfallmedikation zu verabreichen. Die Krankenkasse genehmigte die Kosten. Was folgte, waren Monate der Suche nach einem Pflegedienst mit verfügbarem Personal. Der Dienst, den wir schließlich fanden, setzte jemanden mit weniger Erfahrung ein. Diese Person verließ die Stelle aus eigenen Gründen, und weder die Krankenkasse noch wir konnten Ersatz finden. Die Kosten waren genehmigt. Der Anbieter existierte nicht.</p>
+  <p>Als Alessandro in der Kita einen Anfall hatte — nur einen einzigen — schränkte die Leitung seine Anwesenheitszeit auf drei Stunden täglich ein. Meine Frau verbrachte einen Großteil dieser Zeit auf dem Parkplatz vor der Kita — weil das Zeitfenster zwischen einem Anruf und einem laufenden Anfall zu kurz für alles andere war.</p>
+  <p>Das änderte sich mit Fintepla. Wir fanden eine Inklusionskita, wo Alessandro einfach zur Gruppe gehörte — bekannt, akzeptiert, wirklich einbezogen. Der letzte Abschnitt der Kita-Zeit war besser als alles, was davor kam.</p>
+
+  <h2>Schule</h2>
+  <p>Alessandro begann im August 2024 mit der Schule. Nach unserem Umzug im Februar 2025 wechselte er zu einer Förderschule in Nord-Hamburg — und es war von Anfang an der richtige Ort.</p>
+  <p>In der Schule hat Alessandro etwas, das mehr zählt als jedes Dokument: eine Lehrerin, die ihn gut kennt, die mit Kindern erfahren ist, die das brauchen, was er braucht, und die wirklich für ihn sorgt. Die anderen Kinder sind ihm gegenüber auf eine stille Art beschützend — so wie es manchmal entsteht, wenn eine Klasse jemanden wirklich kennt. Er gehört dazu.</p>
+  <p>Im Januar 2026 wurde sein Pflegegrad von 2 auf 3 angehoben. Diese Einstufung ermöglichte eine ganztägige <strong>1:1-Schulbegleitung</strong> — eine feste Begleitperson, die Alessandro den gesamten Schultag begleitet, einschließlich Pausen und Übergängen, auf Anfallszeichen achtet und sein Notfallmedikament dabei hat.</p>
+  <p>Das eine strukturelle Problem: Die Schule bietet Physiotherapie direkt vor Ort an — das ist ausgezeichnet. Aber Ergotherapie und Logopädie müssen extern organisiert werden.</p>
+
+  <h2>Der Hort — und ein Kampf, der es wert war</h2>
+  <p>Der GBS (Ganztagsbetreuung bis 16:00 Uhr) lief zu Beginn nicht reibungslos. Einige Verhaltensweisen von Alessandro wurden falsch gedeutet. Ohne uns zu konsultieren, reduzierte der Hort seine erlaubten Stunden von 16:00 auf 15:00 Uhr — einseitig.</p>
+  <p>Wir haben das nicht akzeptiert. Wir haben eine formelle Beschwerde eingereicht und uns dabei auf die <a href="https://lmbhh.de/" target="_blank" rel="noopener">Lebenshilfe Hamburg (LmB HH)</a> gestützt, die uns mit der Ombudsstelle für inklusive Bildung in Kontakt gebracht hat. Diese Unterstützung war entscheidend dafür, dass wir überhaupt den richtigen Kanal gefunden haben. Nach mehreren Gesprächen machte die Hort-Leitung konkrete Änderungen: eine Umstrukturierung des Personals, um Alessandro bis 16:00 Uhr täglich eine dedizierte Betreuung zu gewährleisten.</p>
+  <p>Andere Familien in Deutschland werden dieses Muster kennen: ein System, das sich erst bewegt, wenn man es anschiebt. Sie haben jedes Recht, dafür einzutreten.</p>
+
+  <h2>Schulbegleitung in Hamburg — was sich ändert und wie man helfen kann</h2>
+  <p>Zum Schuljahr 2026/27 hat die Hamburger Schulbehörde (BSFB) die Organisation der Schulbegleitung verändert. Schulbegleitungen durch Freiwilligendienstleistende (FSJ) werden künftig vollständig über sogenannte Kombinationsmaßnahmen organisiert: Eine Begleitperson unterstützt mehrere Kinder in einer Klasse oder Schule, und unbesetzte Stellen werden mit diesen Kombinationsmaßnahmen überbrückt. Die Behörde sagt, die Bewilligungskriterien blieben unverändert, es gebe keine Höchstgrenze, und es handle sich um eine Weiterentwicklung, nicht um eine Kürzung. Ihre eigene Darstellung steht in der <a href="https://www.hamburg.de/politik-und-verwaltung/behoerden/bsfb/veroeffentlichungen/pressemeldungen/schulbegleitung-in-hamburg-wird-weiterentwickelt-1191650" target="_blank" rel="noopener">Pressemitteilung der Behörde</a>.</p>
+  <p>Viele Eltern sehen das anders. Laut Elternkammer Hamburg wurden nach der Umstellung rund 540 Fälle neu geprüft; von den bis September abgeschlossenen 468 führten 377 zu einer geänderten Entscheidung. Für ein Kind mit Epilepsie oder anderem medizinischen Bedarf ist eine geteilte Begleitung etwas ganz anderes als eine feste. Die Elternkammer fordert die Behörde auf, die Neuorganisation auszusetzen (<a href="https://www.elternkammer-hamburg.de/2026/09/15/5961/" target="_blank" rel="noopener">Beschluss vom 15. September 2026</a>).</p>
+  <p>Eine von Eltern getragene Petition fordert die Hamburgische Bürgerschaft auf, qualifizierte Fachkräfte zu erhalten statt sie durch Freiwilligendienstleistende zu ersetzen, Bewilligungen zügig und bedarfsgerecht zu halten und die Neuorganisation auszusetzen, bis sie gemeinsam mit den Eltern geprüft wurde. Es ist eine Hamburger <em>Volkspetition</em>: Sie braucht 10.000 gültige Unterschriften, und nur persönliche Unterschriften auf Papier zählen. Formular ausdrucken, unterschreiben und bis zum <strong>6. November 2026</strong> per Post senden. Wir unterschreiben selbst.</p>
+  <p><a href="https://www.keine-sparmassnahmen-zulasten-hamburgs-schulkinder.de/schulbegleitung.html" target="_blank" rel="noopener">→ Zur Petition und zum Unterschriftenformular</a> · <em>Wir sind nicht die Veranstalter, sondern Unterzeichner.</em></p>
+
+  <h2>Entwicklung, Therapien und die Lücken dazwischen</h2>
+  <p>Neben der Anfallsgeschichte lebt Alessandro mit einer deutlichen kognitiven Beeinträchtigung, einer Sprachentwicklungsverzögerung und motorischen Schwierigkeiten. Er ist zweisprachig in Italienisch und Deutsch — Italienisch ist die Sprache zu Hause — und sein Sprachverständnis ist deutlich stärker als das, was er ausdrücken kann.</p>
+  <p>Er kommuniziert herzlich und direkt, besonders mit Erwachsenen, die ihn kennen. Er mag Marvel, Star Wars, Musik.</p>
+  <p>Aktive Therapien: Physiotherapie in der Schule, Ergotherapie, Psychomotorik in der Schule, UKE Familienambulanz. Die eine bedeutende Lücke ist <strong>Logopädie</strong>. Alessandro hat eine aktive Diagnose einer expressiven Sprachentwicklungsverzögerung. Seine Therapeutin hat gewechselt, und eine neue Therapeutin zu finden ist wirklich schwierig. Wartelisten in Hamburg sind lang — und das Bild ist für Kinder mit komplexem Bedarf noch schwieriger. Wir suchen seit Monaten. Es bleibt ungelöst — und andere Familien in Deutschland werden diese Erfahrung kennen.</p>
+
+  <hr>
+
+  <h2>Ressourcen, die wir empfehlen würden</h2>
+  <div class="resource">
+    <a href="https://www.dravetregistry.eu" target="_blank" rel="noopener">RESIDRAS — Internationales Dravet-Syndrom-Register ↗</a>
+    <p>Ein europäisches multizentrisches Patientenregister, das die Daten Ihres Kindes mit einem breiteren Forschungsbild verbindet.</p>
+  </div>
+  <div class="resource">
+    <a href="https://www.dravet.de" target="_blank" rel="noopener">Dravet-Syndrom e.V. (Deutschland) ↗</a>
+    <p>Der deutsche Patientenverband. Erster Gemeinschaftskontakt für Familien, die das deutsche Gesundheitssystem navigieren.</p>
+  </div>
+  <div class="resource">
+    <a href="https://www.dravetfoundation.org" target="_blank" rel="noopener">Dravet Syndrome Foundation (international) ↗</a>
+    <p>Englischsprachige Stiftung mit klinischer Orientierung, Studieninformationen und Ressourcen für Familienunterstützung.</p>
+  </div>
+
+  <div class="resource">
+    <a href="https://lmbhh.de/" target="_blank" rel="noopener">Lebenshilfe Hamburg (LmB HH) ↗</a>
+    <p>Hamburger Verband, der Familien bei der Navigation des Systems für inklusive Bildung unterstützt — einschließlich Zugang zur Ombudsstelle.</p>
+  </div>
+
+  <div class="contact-box">
+    <p><strong>Kontakt aufnehmen</strong></p>
+    <p>Wenn Sie etwas Ähnliches durchmachen und mit einer anderen Familie sprechen möchten, die das kennt, schreiben Sie uns: <a href="mailto:ale.dravet@gmail.com">ale.dravet@gmail.com</a>. Wir können keine schnellen Antworten versprechen, aber wir lesen alles.</p>
+  </div>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- ITALIAN CONTENT -->
+<!-- ============================================================ -->
+<div class="content" id="content-it">
+
+  <div class="badge"><span class="badge-dot"></span> Senza crisi da marzo 2022</div>
+
+  <p>Alessandro ha otto anni. Vive ad Amburgo con i suoi genitori — entrambi italiani — la sua sorellina Sveva e Shumba, il loro Labrador. Ama gli Avengers, con Hulk come favorito indiscusso. Il suo colore preferito è il verde. Va pazzo per il pesto — che metterebbe volentieri su tutto — e per le patatine fritte. Ama i libri, più sono grandi meglio è, e gli piace portarseli in giro con sé. È anche una delle persone più affettuose che si possano incontrare. Ha anche la Sindrome di Dravet, una forma rara e grave di epilessia. Questo è il nostro racconto di cosa ha significato per lui — e per noi.</p>
+
+  <h2>Dove siamo oggi</h2>
+  <p>Alessandro è <strong>senza crisi da marzo 2022</strong>. Assume due farmaci — Fintepla (fenfluramina) e Orfiril Long (valproato) — ed è stabile con questa combinazione da oltre tre anni. Non è una guarigione. La Sindrome di Dravet non scompare. Ma è una stabilità che una volta non riuscivamo nemmeno a immaginare, e che è arrivata dopo anni davvero durissimi.</p>
+
+  <h2>L'inizio — Italia, 2018</h2>
+  <p>La prima crisi di Alessandro è arrivata quando aveva appena quattro mesi e mezzo — circa venti minuti dopo una vaccinazione di routine contro la meningite. Era subdola: lievi movimenti oculari e rotazione del capo. Non sembrava la tipica crisi convulsiva — e proprio per questo non ci era sembrata subito un'epilessia. Ma la frequenza con cui si ripresentava ci ha reso impossibile ignorarla. Nello stesso mese è stata diagnosticata l'epilessia.</p>
+  <p>L'approccio terapeutico iniziale — guidato da uno specialista a Firenze già esperto in Dravet — era Stiripentol (Diacomit) combinato con Clobazam (Frisium). Già allora, prima di avere una causa genetica confermata, Fintepla era stata menzionata come possibile passo successivo. Nel luglio 2018, quando Alessandro aveva sei mesi, ha avuto il suo primo Stato Epilettico (SE) documentato — febbrile, bifasico. Si è brevemente interrotto all’arrivo in ospedale, poi è ripreso. Non si è fermato da solo. Ha avuto bisogno di cure intensive, ma respirava autonomamente.</p>
+
+  <h2>Il trasferimento ad Amburgo — e una diagnosi rimasta in sospeso</h2>
+  <p>Ci siamo trasferiti ad Amburgo alla fine di novembre 2018. Alessandro aveva dieci mesi. Le sue cure sono passate al team di neuropediatria dell'UKE (Universitätsklinikum Hamburg-Eppendorf).</p>
+  <p>C'è qualcosa di importante da capire: <strong>la diagnosi di Dravet non è stata accettata ad Amburgo.</strong> Non subito, e non per anni.</p>
+  <p>I neurologi italiani a Firenze avevano fatto una diagnosi clinica di Dravet basandosi unicamente sulla semiologia delle crisi. Ad Amburgo, il quadro sembrava diverso. Le crisi erano frequenti ma più brevi, rispondevano alla terapia d'emergenza. Per un quadro classico di Dravet, la presentazione era considerata lieve.</p>
+  <p>Poi è arrivata la genetica. Il pannello genico SCN1A ha dato <strong>risultato negativo</strong>. Quello che il test aveva mancato era una grande delezione nella <em>regione regolatoria</em> di SCN1A — un tratto di DNA che si trova a monte del gene stesso. I pannelli standard non leggono quella regione. Solo il Sequenziamento dell'Intero Genoma può rilevarla — e quello sarebbe avvenuto solo sette anni dopo.</p>
+
+  <h2>Il periodo peggiore — ottobre 2020 - febbraio 2021</h2>
+  <p>In un arco di quattro mesi, Alessandro ha avuto <strong>sei episodi di Stato Epilettico</strong>. Alcuni hanno richiesto intubazione e ventilazione meccanica, diversi ricoveri in terapia intensiva. Alcuni erano scatenati da infezioni virali; uno è arrivato senza febbre. È sopravvissuto a tutti e ogni volta è tornato a casa — ma quel periodo ha lasciato un segno indelebile nell'intera nostra famiglia.</p>
+  <p>Nel mezzo di quel cluster, il team dell'UKE ha scritto formalmente per la prima volta che il quadro clinico era <em>"più coerente con la sindrome di Dravet."</em> Non confermato. Non definitivo. Ma nominato. Erano stati necessari sei ricoveri in terapia intensiva per arrivare a quel punto.</p>
+
+  <h2>Quello che abbiamo imparato sulle crisi di Alessandro</h2>
+  <ul class="learn-list">
+    <li><strong>Le infezioni virali erano quasi sempre il fattore scatenante</strong> — Rhinovirus, Enterovirus, Bocavirus. Qualsiasi febbre, anche lieve, comportava un rischio reale.</li>
+    <li><strong>Le crisi iniziavano tipicamente in modo focale</strong> — deviazione dello sguardo, respirazione anomala, ridotta reattività. L'assenza di tremori visibili <strong>non</strong> significa che la crisi non sia seria.</li>
+    <li><strong>Il Buccolam a casa spesso funzionava solo parzialmente.</strong> Abbiamo imparato a non indugiare dopo la prima dose — arrivare in ospedale rapidamente era la scelta giusta.</li>
+    <li><strong>La finestra temporale conta.</strong> Più a lungo dura una crisi, più è difficile fermarla. L'escalation precoce lo ha salvato.</li>
+  </ul>
+
+  <h2>Il punto di svolta — marzo 2022</h2>
+  <p>Il 5 marzo 2022 Alessandro ha avuto il suo ottavo SE documentato. È arrivato nel sonno, senza febbre. Apnea prolungata e rischio di aspirazione. Un altro ricovero in terapia intensiva.</p>
+  <p>Quell'episodio ha finalmente fatto superare una soglia. Fintepla (fenfluramina) — il farmaco che era già stato indicato come possibile passo successivo a Firenze nel 2018 — è stato avviato. <strong>Ha funzionato.</strong></p>
+  <p>Alessandro è senza crisi da marzo 2022. La sua dose attuale — Fintepla 2,4 ml due volte al giorno, Orfiril Long 300 mg due volte al giorno — è rimasta stabile. Non sappiamo se durerà. Non lo diamo per scontato. Ma è reale.</p>
+
+  <h2>I suoi farmaci attuali — spiegati</h2>
+  <div class="med-card">
+    <h3>Fintepla (fenfluramina)</h3>
+    <p>Fintepla è un farmaco serotoninergico, approvato specificamente per la Sindrome di Dravet in Europa. Richiede un monitoraggio cardiaco (ecocardiogramma) ogni sei mesi. Le valutazioni cardiache di Alessandro sono state normali fino ad oggi.</p>
+    <p>Alessandro assume <strong>2,4 ml due volte al giorno</strong> (mattina e sera).</p>
+  </div>
+  <div class="med-card">
+    <h3>Orfiril Long (valproato)</h3>
+    <p>Orfiril Long è una forma a rilascio prolungato di valproato, uno dei trattamenti consolidati per la Sindrome di Dravet. Alessandro lo assume da anni in varie forme.</p>
+    <p>Alessandro assume <strong>300 mg due volte al giorno</strong> (mattina e sera).</p>
+  </div>
+
+  <h2>Farmaco d'emergenza</h2>
+  <h3>Buccolam (midazolam buccale)</h3>
+  <p>Il Buccolam è il nostro farmaco d'emergenza di prima linea, somministrato per via buccale. Usiamo la <strong>dose da 7,5 mg</strong>.</p>
+  <p><strong>Lo somministriamo immediatamente, al primissimo segno di una crisi, senza aspettare.</strong> Il rischio di una crisi prolungata è di gran lunga maggiore del rischio di somministrare una dose che alla fine non era strettamente necessaria.</p>
+  <p><strong>Chiamiamo l'ambulanza nello stesso momento in cui somministriamo il Buccolam — non dopo.</strong> Anche se la crisi si ferma prima che arrivi l'ambulanza, Alessandro va comunque in ospedale. Ogni volta, senza eccezioni. Se fosse necessaria una seconda dose, questa può essere somministrata solo dal personale medico.</p>
+
+  <h3>Protocollo per la febbre — e perché è più difficile di quanto sembri</h3>
+  <p>La febbre era il fattore scatenante più costante di Alessandro. Le crisi erano scatenate dall'<strong>improvviso aumento</strong> della temperatura. La finestra tra "sembra un po' caldo" e "la crisi è già iniziata" era a volte di minuti.</p>
+  <p><strong>La gestione della febbre nel Dravet, prima di avere un farmaco efficace, è davvero difficile.</strong> Somministrare antipiretici precocemente è l'istinto giusto, ma non garantisce una protezione affidabile. È importante che le altre famiglie lo sappiano — invece di sentirsi in colpa perché una crisi è avvenuta nonostante i loro sforzi migliori.</p>
+
+  <h2>La risposta genetica — sette anni e mezzo dopo</h2>
+  <p>Nel marzo 2026, il Sequenziamento dell'Intero Genoma all'UKE di Amburgo ci ha dato la risposta: una grande delezione nella <strong>regione promotrice 5′UTR di SCN1A</strong> — il tratto regolatorio del DNA che controlla se il gene si attiva. La copia di Alessandro era difettosa dalla nascita.</p>
+  <p>I test genetici standard non leggono quella parte del genoma. Solo il Sequenziamento dell'Intero Genoma legge l'intero genoma, incluse quelle regioni.</p>
+  <p><strong>I test precedenti non erano sbagliati. Hanno fatto esattamente quello per cui erano stati progettati.</strong> Se vostro figlio ha un quadro clinico di Dravet e i test genetici sono risultati negativi, chiedete al vostro neurologo del Sequenziamento dell'Intero Genoma.</p>
+
+  <h2>L'ereditarietà — mosaicismo nella famiglia</h2>
+  <p>Il padre di Alessandro porta <strong>la stessa delezione 5′UTR di SCN1A</strong> — ma solo in circa il <strong>20% delle sue cellule</strong>. Mosaicismo somatico. La sua propria epilessia infantile era più lieve e si è risolta in adolescenza.</p>
+  <p><strong>La stessa variante SCN1A può produrre un fenotipo Dravet completo in una persona e un'epilessia molto più lieve in un'altra.</strong> Se vostro figlio ha un fenotipo Dravet, avete avuto un esoma negativo e un genitore ha una storia di crisi: chiedete del Sequenziamento dell'Intero Genoma.</p>
+
+  <h2>Kita — e tutto prima della scuola</h2>
+  <p>Trovare un posto al nido per Alessandro ha richiesto più tempo del dovuto. Amburgo ha lunghe liste d'attesa in tempi normali; il COVID le ha allungate ulteriormente. Quando abbiamo finalmente trovato un posto, aveva già superato di gran lunga l'età in cui la maggior parte dei bambini inizia.</p>
+  <p>Il primo Kita richiedeva un'infermiera presente per somministrare il farmaco d'emergenza. L'assicurazione sanitaria ha approvato i costi. Quello che è seguito sono stati mesi di ricerca per trovare un'agenzia con qualcuno disponibile. L'agenzia che abbiamo trovato ci ha mandato qualcuno con meno esperienza; quella persona ha lasciato per ragioni proprie, e non abbiamo trovato un sostituto. I costi erano approvati. Il fornitore non esisteva.</p>
+  <p>Quando Alessandro ha avuto una crisi al nido — solo una — la responsabile dell'asilo ha limitato la sua frequenza a massimo tre ore al giorno. Mia moglie trascorreva gran parte di quel tempo nel parcheggio fuori dal Kita — perché il tempo che intercorreva tra una telefonata e una crisi in corso era troppo breve per fare altro.</p>
+  <p>Le cose sono cambiate con Fintepla. Abbiamo trovato un Asilo Inclusivo dove Alessandro faceva semplicemente parte del gruppo — conosciuto, accettato, davvero incluso. È stata un'esperienza completamente diversa.</p>
+
+  <h2>Scuola</h2>
+  <p>Alessandro ha iniziato la scuola nell'agosto 2024. Dopo il nostro trasferimento nel febbraio 2025, è passato a una scuola nel nord di Amburgo che accoglie anche bambini con disabilità — ed è stato il posto giusto fin dall'inizio.</p>
+  <p>A scuola, Alessandro ha qualcosa che conta più di qualsiasi documento: un'insegnante che lo conosce profondamente, è esperta con i bambini che hanno bisogno di quello che ha lui, e si prende davvero cura di lui. Gli altri bambini sono protettivi nei suoi confronti nel modo silenzioso che a volte accade quando una classe conosce davvero qualcuno. Lui appartiene lì.</p>
+  <p>Nel gennaio 2026, il suo livello di assistenza è stato aumentato da 2 a 3. Questo ha aperto la strada a un'assistenza scolastica dedicata a tempo pieno <strong>1:1</strong> — un accompagnatore che segue Alessandro durante l'intera giornata scolastica, incluse le pause, monitora i segnali di crisi e porta il farmaco d'emergenza.</p>
+  <p>Il problema strutturale: la scuola offre fisioterapia direttamente in sede — ottima. Ma ergoterapia e logopedia devono essere organizzate esternamente, il che significa navigare da soli le liste d'attesa di Amburgo.</p>
+
+  <h2>Il Hort — e una battaglia che valeva la pena combattere</h2>
+  <p>Il GBS (il programma pomeridiano fino alle 16:00) non è andato liscio all'inizio. Alcuni comportamenti di Alessandro sono stati fraintesi. Senza consultarci, ha ridotto unilateralmente il suo orario, facendolo uscire alle 15:00.</p>
+  <p>Non lo abbiamo accettato. Abbiamo presentato un reclamo formale, e in questo percorso ci ha supportato la <a href="https://lmbhh.de/" target="_blank" rel="noopener">Lebenshilfe Hamburg (LmB HH)</a>, che ci ha messo in contatto con l'ombudsman per l'istruzione inclusiva. Senza quel contatto, navigare il processo sarebbe stato molto più difficile. Dopo numerose riunioni, la direzione della scuola ha riorganizzato il personale in modo che l'Hort potesse garantire una supervisione continua di Alessandro fino alle 16:00.</p>
+  <p>Altre famiglie riconosceranno lo schema: un sistema che non si muove finché non viene spinto. Avete tutto il diritto di fare pressione.</p>
+
+  <h2>Schulbegleitung ad Amburgo — cosa cambia e come aiutare</h2>
+  <p>Dall'anno scolastico 2026/27 l'autorità scolastica di Amburgo (BSFB) ha cambiato l'organizzazione della Schulbegleitung, cioè l'assistenza scolastica che aiuta i bambini con disabilità a partecipare alla vita della scuola. Gli accompagnatori forniti da volontari del servizio volontario (FSJ) vengono ora organizzati interamente tramite "misure combinate": un accompagnatore segue più bambini in una classe o in una scuola, e le posizioni scoperte vengono coperte con queste misure condivise. L'autorità afferma che i criteri di approvazione non cambiano, che non esiste un tetto massimo e che si tratta di un perfezionamento, non di un taglio. La sua descrizione è nel <a href="https://www.hamburg.de/politik-und-verwaltung/behoerden/bsfb/veroeffentlichungen/pressemeldungen/schulbegleitung-in-hamburg-wird-weiterentwickelt-1191650" target="_blank" rel="noopener">comunicato stampa dell'autorità</a>.</p>
+  <p>Molti genitori la vedono diversamente. Secondo la Elternkammer (la Camera dei genitori) di Amburgo, dopo il cambiamento circa 540 casi sono stati rivalutati; dei 468 conclusi entro settembre, 377 hanno portato a una decisione modificata. Per un bambino con epilessia o altre esigenze mediche, un accompagnatore condiviso è molto diverso da uno dedicato. La Elternkammer ha chiesto all'autorità di sospendere la riorganizzazione (<a href="https://www.elternkammer-hamburg.de/2026/09/15/5961/" target="_blank" rel="noopener">risoluzione del 15 settembre 2026</a>).</p>
+  <p>Una petizione promossa da genitori chiede al parlamento di Amburgo di mantenere personale qualificato invece di sostituirlo con volontari, di garantire approvazioni rapide e basate sul bisogno e di sospendere la riorganizzazione finché non sarà valutata insieme ai genitori. È una <em>Volkspetition</em> di Amburgo: servono 10.000 firme valide e contano solo le firme personali su carta. Stampare il modulo, firmare e spedire entro il <strong>6 novembre 2026</strong>. Noi la firmiamo.</p>
+  <p><a href="https://www.keine-sparmassnahmen-zulasten-hamburgs-schulkinder.de/schulbegleitung.html" target="_blank" rel="noopener">→ Alla petizione e al modulo per le firme</a> · <em>Non siamo gli organizzatori, ma firmatari.</em></p>
+
+  <h2>Sviluppo, terapie e le lacune nel mezzo</h2>
+  <p>Oltre alla storia delle crisi, Alessandro vive con una significativa compromissione cognitiva, un ritardo nello sviluppo del linguaggio espressivo, e difficoltà motorie. È bilingue in italiano e tedesco — l'italiano è la lingua di casa — e la sua comprensione è decisamente più sviluppata rispetto alle sue capacità espressive.</p>
+  <p>Comunica in modo caloroso e diretto, soprattutto con gli adulti che lo conoscono. Gli piace quello che gli piace: Marvel, Star Wars, la musica.</p>
+  <p>Terapie attive: fisioterapia a scuola, ergoterapia, psicomotricità a scuola, consultazioni UKE Familienambulanz. La lacuna significativa è la <strong>logopedia</strong>. Alessandro ha una diagnosi attiva di ritardo nello sviluppo del linguaggio espressivo. La sua terapista è cambiata e trovare un nuovo fornitore è davvero difficile. Le liste d'attesa ad Amburgo sono lunghe — e il quadro è più difficile per i bambini con bisogni complessi. Stiamo cercando da mesi. Rimane irrisolto. Lo nominiamo perché altre famiglie in Germania riconosceranno questa esperienza.</p>
+
+  <hr>
+
+  <h2>Risorse che consigliamo alle altre famiglie</h2>
+  <div class="resource">
+    <a href="https://www.dravetregistry.eu" target="_blank" rel="noopener">RESIDRAS — Registro Internazionale della Sindrome di Dravet ↗</a>
+    <p>Un registro europeo multicentrico che collega i dati di vostro figlio a un quadro di ricerca più ampio.</p>
+  </div>
+  <div class="resource">
+    <a href="https://www.dravet.de" target="_blank" rel="noopener">Dravet-Syndrom e.V. (Germania) ↗</a>
+    <p>L'associazione tedesca dei pazienti. Primo contatto comunitario per le famiglie che navigano il sistema sanitario tedesco.</p>
+  </div>
+  <div class="resource">
+    <a href="https://www.dravetfoundation.org" target="_blank" rel="noopener">Dravet Syndrome Foundation (internazionale) ↗</a>
+    <p>Fondazione in lingua inglese con orientamento clinico, informazioni sugli studi e risorse per le famiglie.</p>
+  </div>
+
+  <div class="resource">
+    <a href="https://lmbhh.de/" target="_blank" rel="noopener">Lebenshilfe Hamburg (LmB HH) ↗</a>
+    <p>Associazione di Amburgo che supporta le famiglie nella navigazione del sistema per l'istruzione inclusiva — incluso l'accesso all'ombudsman.</p>
+  </div>
+
+  <div class="contact-box">
+    <p><strong>Contattaci</strong></p>
+    <p>Se state attraversando qualcosa di simile e volete parlare con un'altra famiglia che c'è passata, scriveteci a <a href="mailto:ale.dravet@gmail.com">ale.dravet@gmail.com</a>. Non possiamo promettere risposte rapide, ma leggiamo tutto.</p>
+  </div>
+
+</div>
+</main>
+
+<!-- Footer -->
+<footer>
+  <p id="footer-text"></p>
+</footer>
+
+<script>
+const T = {
+  en: {
+    title: "Alessandro — a family's account of living with Dravet Syndrome",
+    sub: "Written for other families — not for medical teams. Our honest account of what happened, what helped, and what we wish we'd known earlier.",
+    footer: "This account reflects our family's experience. It is not medical advice. Medication doses, rescue protocols and contraindication lists should always be discussed and confirmed with your child's neurology team. Last updated: May 2026",
+    pageTitle: "Alessandro — Living with Dravet Syndrome"
+  },
+  de: {
+    title: "Alessandro — der Bericht einer Familie über das Leben mit dem Dravet-Syndrom",
+    sub: "Geschrieben für andere Familien — nicht für medizinisches Fachpersonal. Unser ehrlicher Bericht über das, was passiert ist, was geholfen hat, und was wir uns gewünscht hätten, früher gewusst zu haben.",
+    footer: "Dieser Bericht spiegelt die Erfahrungen unserer Familie wider. Er ist keine medizinische Beratung. Medikamentendosen, Notfallprotokolle und Kontraindikationslisten sollten immer mit dem Neurologieteam Ihres Kindes besprochen werden. Zuletzt aktualisiert: Mai 2026",
+    pageTitle: "Alessandro — Leben mit dem Dravet-Syndrom"
+  },
+  it: {
+    title: "Alessandro — il racconto di una famiglia che vive con la Sindrome di Dravet",
+    sub: "Scritto per le altre famiglie — non per il personale medico. Il nostro racconto onesto di quello che è successo, di cosa ha aiutato, e di quello che avremmo voluto sapere prima.",
+    footer: "Questo resoconto riflette l'esperienza della nostra famiglia. Non è un consiglio medico. Dosi di farmaci, protocolli d'emergenza e liste di controindicazioni devono sempre essere discussi con il team neurologico di vostro figlio. Ultimo aggiornamento: maggio 2026",
+    pageTitle: "Alessandro — Vivere con la Sindrome di Dravet"
+  }
+};
+
+function setLang(lang) {
+  document.getElementById('html-root').lang = lang;
+  document.getElementById('page-title').textContent = T[lang].pageTitle;
+  document.getElementById('banner-title').innerHTML = '<span aria-hidden="true" style="color:#7B5EA7;margin-right:6px">💜</span>' + T[lang].title;
+  document.getElementById('banner-sub').textContent = T[lang].sub;
+  document.getElementById('footer-text').textContent = T[lang].footer;
+  ['en','de','it'].forEach(function(l) {
+    document.getElementById('content-' + l).classList.toggle('active', l === lang);
+    document.getElementById('btn-' + l).classList.toggle('active', l === lang);
+  });
+  try { localStorage.setItem('ale-lang', lang); } catch(e) {}
+}
+
+var saved = 'en';
+try { saved = localStorage.getItem('ale-lang') || 'en'; } catch(e) {}
+setLang(saved);
+</script>
+</body>
+</html>
